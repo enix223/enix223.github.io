@@ -14,7 +14,7 @@ prose:
     _posts:
       - name: "categories"
         field:
-          element: "hidden"
+          element: "text"
           value: "blog"
       - name: "layout"
         field:
