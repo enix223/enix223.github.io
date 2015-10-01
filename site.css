@@ -494,3 +494,30 @@ Details: http://www.positioniseverything.net/easyclearing.html
     }
   }
 
+.prose img{
+	max-width: 100%;
+	height: auto;
+}
+
+.subtitle{
+	font-size: 13px;
+	color: #ccc;
+}
+
+.avater {
+    width: 120px;
+    height: 120px;
+    /*position: absolute;
+    top: 60px;
+    right: 50%;
+    margin-right: -60px;
+    background-size: cover;*/
+    border-radius: 50%;
+    z-index: 99;
+    text-indent: -9999px;
+    border: 3px solid #fff;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); 
+}
