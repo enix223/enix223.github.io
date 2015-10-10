@@ -1,7 +1,6 @@
 ---
 layout: blog
-tags: 
-  - "null"
+tags: null
 published: true
 title: "Definition Guide to Cortex M4 Note - 1"
 date: "2015-10-01 15:33:08 +0800"
@@ -10,10 +9,9 @@ categories: blog
 
 ## 关于Data structure alignment (字节对齐)
 
-### 1. 背景
-
 在C语言编程中，我们往往会遇到字节对齐的问题。因为对于现代的计算机，对内存的读写都是以字（word）的大小为基本操作。例如，对于32位CPU，一个字（word）= 4 个字节，也就是32位。
 
+### 1. 背景
 字节对齐就是在数据中插入无意义的占位字节，使数据结构struct的大小正好是CPU字的整数倍。这样可以提高计算机读取写入内存的效率。
 
 举个例子，对于`int`类型，一般占用4个字节。如果需要读取一个`int`类型的变量，但是这个变量是在偶数地址（例如 `0x04`），那么CPU可以在一个周期就可以读出该int变量；若该int类型存储与奇数地址（例如 `0x03`），那么CPU必须读取两次内存，并需要对读取的两次值做拼凑，才可以得到该int的值。这样，读取效率就会变得很低。而通过字节对齐，CPU可以减少读取和写入的次数。对于struct，这个尤为明显。所以字节对齐会经常和struct一起出现。
@@ -125,8 +123,8 @@ MDK和GCC编译器写法：
 
 而对于MDK和GCC，__attribute__((packed)) 和 __attribute__((aligned))来实现相同的功能。
 
-- __attribute__((packed)) 对于变量，则为1个字节；对于field，则为1 bit。
-- __attribute__((aligned)) 以字节为单位
+1. __attribute__((packed)) 对于变量，则为1个字节；对于field，则为1 bit。
+2. __attribute__((aligned)) 以字节为单位
 
 
 ### 4. 参考
