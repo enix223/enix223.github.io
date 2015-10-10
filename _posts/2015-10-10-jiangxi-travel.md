@@ -7,7 +7,11 @@ title: 秋风飒爽，江西赣州行
 date: "2015-10-10 17:00:01 +0800"
 ---
 
+
 ### 赣州浮桥，八镜台
+![IMG_1438[1].JPG]({{site.baseurl}}/media/IMG_1438[1].JPG)
+![IMG_1445[1].JPG]({{site.baseurl}}/media/IMG_1445[1].JPG)
+![IMG_1437[1].JPG]({{site.baseurl}}/media/IMG_1437[1].JPG)
 ![IMG_1428[1].JPG]({{site.baseurl}}/media/IMG_1428[1].JPG)
 ![IMG_1429[1].JPG]({{site.baseurl}}/media/IMG_1429[1].JPG)
 ![IMG_1430[1].JPG]({{site.baseurl}}/media/IMG_1430[1].JPG)
@@ -29,6 +33,8 @@ date: "2015-10-10 17:00:01 +0800"
 ![IMG_1415.JPG]({{site.baseurl}}/media/IMG_1415.JPG)
 ![IMG_1413.JPG]({{site.baseurl}}/media/IMG_1413.JPG)
 ![IMG_1412.JPG]({{site.baseurl}}/media/IMG_1412.JPG)
+![IMG_1425[1].JPG]({{site.baseurl}}/media/IMG_1425[1].JPG)
+
 
 ### 丰收
 ![IMG_1407.JPG]({{site.baseurl}}/media/IMG_1407.JPG)
