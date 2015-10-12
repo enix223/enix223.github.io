@@ -11,3 +11,6 @@ title: Fotrend 开发日记 1
 移动端UI Responsive设计：
 ![IMG_1423.JPG]({{site.baseurl}}/media/IMG_1423.JPG)
 
+#### 参考
+- [homeaway](http://www.homeaway.com/vacation-rentals/australia/r15)
+- [Airbnb](https://www.airbnb.com/s/Byron-Bay--Australia)
