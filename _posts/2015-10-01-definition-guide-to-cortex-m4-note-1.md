@@ -8,6 +8,7 @@ date: "2015-10-01 15:33:08 +0800"
 categories: blog
 ---
 
+
 在C语言编程中，我们往往会遇到字节对齐的问题。因为对于现代的计算机，对内存的读写都是以字（word）的大小为基本操作。例如，对于32位CPU，一个字（word）= 4 个字节，也就是32位。
 
 ### 1. 背景
@@ -38,13 +39,14 @@ categories: blog
 尽管C和C++编译器不允许在编译阶段重新排列结构的成员，以达到降低结构占用空间的目的，但我们仍然可以告诉编译器，使用什么样的对齐方式来封装`pack`结构的成员。例如，`pack(2)`表示结构成员将以2字节对齐。说的有点抽象，看看以下例子：
 
 假如我们定义了一个这样的结构：  
-
-	struct PackData
-	{
-	  char MA;
-	  int MB;
-	  char MC;
-	}
+{% highlight c %}
+struct PackData
+{
+  char MA;
+  int MB;
+  char MC;
+}
+{% endhighlight %}
 
 在没有任何`pack`指令的前提下，编译器会自动按最大的成员做填充，`sizeof(PackData)`就会等于4×3=12，内存填充结果就是：      
 
@@ -56,23 +58,25 @@ categories: blog
 如果我们修改结构的定义，加上一个`pack(2)`指令：
 
 IAR编译器写法
-
-	#pragma pack(2)
-	struct PackData
-	{
-	  char MA;
-	  int MB;
-	  char MC;
-	}
+{% highlight c %}
+#pragma pack(2)
+struct PackData
+{
+  char MA;
+  int MB;
+  char MC;
+}
+{% endhighlight %}
 
 MDK和GCC编译器写法：
-	
-	struct PackData
-	{
-	  char MA;
-	  int MB __attribute__ ((aligned(2)));
-	  char MC;
-	}
+{% highlight c %}	
+struct PackData
+{
+  char MA;
+  int MB __attribute__ ((aligned(2)));
+  char MC;
+}
+{% endhighlight %}
 
 那么，`sizeof(PackData)`=4×2=8，编译后的填充结果为：
 
@@ -85,25 +89,26 @@ MDK和GCC编译器写法：
 如果我们使用的是`pack(1)`，
 
 IAR编译器写法
-
-	#pragma pack(1)
-	struct PackData
-	{
-	  char MA;
-	  int MB;
-	  char MC;
-	}
-
+{% highlight c %}
+#pragma pack(1)
+struct PackData
+{
+  char MA;
+  int MB;
+  char MC;
+}
+{% endhighlight %}
 
 MDK和GCC编译器写法：
-	
-	struct PackData
-	{
-	  char MA;
-	  int MB __attribute__ ((packed));
-	  char MC;
-	}
-    
+{% highlight c %}	
+struct PackData
+{
+  char MA;
+  int MB __attribute__ ((packed));
+  char MC;
+}
+{% endhighlight %}   
+
 那么`sizeof(PackData)`=1×6=6，内存不再有字节填充：
 
 	|  1   |
