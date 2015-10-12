@@ -1,10 +1,14 @@
 ---
-category: blog
 layout: blog
+category: blog
 title: "xCopter开发日记 - STM32F4 LED example"
-date: 2015-05-04 23:07:47 +0800
+date: "2015-05-04 23:07:47 +0800"
 comments: true
+published: true
+categories: blog
+tags: null
 ---
+
 
 本文阐述如何使用IAR，和STM32F401-Discovery开发板，实现最简单的LED灯点亮熄灭的操作。程序一开始初始化开发板上面的四个LED灯，这四个灯的定义请查看代码stm32f401-discovery.h, 它们分别为：
 
@@ -48,7 +52,7 @@ comments: true
 5. Runtime Checking > Debugger > Driver 选择ST-LINK    
 ![stm32f4-1-1]({{site.url}}/img/stm32f4/1-5.png)
 
-6. Runtime Checking > Debugger > Download取消勾选所有选项
+6. Runtime Checking > Debugger > Download取消勾选所有选项    
 ![stm32f4-1-1]({{site.url}}/img/stm32f4/1-6.png)
 
 ## IAR项目文件结构
