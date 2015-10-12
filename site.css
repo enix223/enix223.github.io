@@ -292,6 +292,7 @@ table {
 .prose ul {
   list-style:disc;
   margin-left:40px;
+  margin-bottom: 10px;
   }
 .prose ol {
   list-style:decimal;
