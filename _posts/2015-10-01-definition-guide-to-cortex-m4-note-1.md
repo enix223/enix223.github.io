@@ -1,11 +1,13 @@
 ---
 layout: blog
-tags: null
+tags: 
+  - "null"
 published: true
 title: "Definition Guide to Cortex M4 Note - 1"
 date: "2015-10-01 15:33:08 +0800"
 categories: blog
 ---
+
 
 ## 关于Data structure alignment (字节对齐)
 
@@ -123,8 +125,8 @@ MDK和GCC编译器写法：
 
 而对于MDK和GCC，__attribute__((packed)) 和 __attribute__((aligned))来实现相同的功能。
 
-1. __attribute__((packed)) 对于变量，则为1个字节；对于field，则为1 bit。
-2. __attribute__((aligned)) 以字节为单位
+- __attribute__((packed)) 对于变量，则为1个字节；对于field，则为1 bit。
+- __attribute__((aligned)) 以字节为单位
 
 
 ### 4. 参考
