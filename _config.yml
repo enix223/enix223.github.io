@@ -3,6 +3,13 @@ subtitle: "Geek is an attitude"
 github: "//github.com/enix223"
 avater: "author.jpg"
 
+comments :
+  provider : duoshuo
+  duoshuo :
+    short_name : enixyu
+  disqus :
+      short_name : enixyu
+
 permalink: pretty
 markdown: kramdown #rdiscount
 prose:
