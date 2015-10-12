@@ -1,7 +1,9 @@
 ---
 layout: default
 section: blog
+published: true
 ---
+
 
 {% if page.splash %}
   {% if page.splash contains 'http' %}
@@ -24,6 +26,8 @@ section: blog
   <div class='prose'>
     {{content}}
   </div>
+  
+  {% include duoshuo.html %}
 </div>
 
 {% include rss-link.html %}
