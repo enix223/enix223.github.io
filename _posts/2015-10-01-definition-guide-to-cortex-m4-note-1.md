@@ -3,13 +3,10 @@ layout: blog
 tags: 
   - "null"
 published: true
-title: "Definition Guide to Cortex M4 Note - 1"
+title: 关于Data structure alignment (字节对齐)
 date: "2015-10-01 15:33:08 +0800"
 categories: blog
 ---
-
-
-## 关于Data structure alignment (字节对齐)
 
 在C语言编程中，我们往往会遇到字节对齐的问题。因为对于现代的计算机，对内存的读写都是以字（word）的大小为基本操作。例如，对于32位CPU，一个字（word）= 4 个字节，也就是32位。
 
