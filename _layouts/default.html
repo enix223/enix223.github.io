@@ -28,4 +28,7 @@
     {{content}}
   </div>
   <script src='{{site.baseurl}}/site.js'></script>
+  {% if page.mathjax %}
+  <script src='//cdn.bootcss.com/mathjax/2.6.0-beta.1/MathJax.js'></script>
+  {% endif %}
 </body>
