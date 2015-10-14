@@ -8,7 +8,8 @@ title: Cortex M4启动流程
 date: "2015-10-01 16:01:08 +0800"
 ---
 
-    附 startup_stm32f407xx.s
+附 startup_stm32f407xx.s
+
     ;******************** (C) COPYRIGHT 2014 STMicroelectronics ********************
     ;* File Name          : startup_stm32f407xx.s
     ;* Author             : MCD Application Team
