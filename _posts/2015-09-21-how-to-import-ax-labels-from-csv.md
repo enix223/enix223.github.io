@@ -182,7 +182,8 @@ And I have written a helper to import csv data to table.
     }
 
 Run this helper, and you can see this:
-![]({{site.baseurl}}//images/ax/20150927-1-importer.PNG)
+![20150927-1-importer.PNG]({{site.baseurl}}/media/20150927-1-importer.PNG)
+
 
 _Convention:_    
 
