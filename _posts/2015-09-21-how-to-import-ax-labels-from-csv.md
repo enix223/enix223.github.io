@@ -1,19 +1,22 @@
 ---
 layout: blog
 title: "AX: How to import labels from csv file"
-date: 2015-09-21 23:04:05 +0800
+date: "2015-09-21 23:04:05 +0800"
 comments: true
 categories: blog
+published: true
+tags: null
 ---
+
 
 ## 1. Background
 As our group need to launch Dynamic AX 2012 project in several countries, and we have developed several reports for our users, but our charllenges are we need to translate all the labels using in this reports to local language. The local translation are provided by our users, but all of them are keep in an excel. Then we have to copy and paste all the labels to the AOT label editor, you know, we have about 1000 labels, and you can imagine what a big work load to do this. And it is a simple manual task, copy and paste !!!! I don't want to do such stupid thing, so I will leave it to the machine. :)
 
 ### 1.1 Labels we already have
-![]({{site.baseurl}}//images/ax/20150927-1-labels.PNG)
+![20150927-1-labels.PNG]({{site.baseurl}}/media/20150927-1-labels.PNG)
 
 ### 1.2 What Translation excel looks like
-![]({{site.baseurl}}//images/ax/20150927-1-excel.PNG)
+![20150927-1-excel.PNG]({{site.baseurl}}/media/20150927-1-excel.PNG)
 
 ### 1.3 Target
 Import all the labels into AOT for the specific language, for this post, the language is "zh-hans".
@@ -23,7 +26,7 @@ Before coding, we need to understand how the label editor works. For the first s
 
 ### 2.1 Label editor
 The best way to trace the program behind the GUI is using **personalize**. First open the label editor, and then right click the any position in the form, and then choose personalize. Then you can see the following screen.
-![]({{site.baseurl}}//images/ax/20150927-1-label-editor.PNG)
+![20150927-1-label-editor.PNG]({{site.baseurl}}/media/20150927-1-label-editor.PNG)
 
 So this form is called: SysLabelSearch. Then we can try to browse the code in this form. After debug and trace, finally, we got how it works. And here is the related class, form, table will be used by this form.
 
@@ -34,7 +37,8 @@ Table: TmpSysLabel (This table is used to keep the search result get from SysLab
 
 ### 2.3 Create a table to hold csv
 A new table is copied from TmpSysLabel (this table is used to keep the search result in SysLabelEdit), and the name is **BIT_EY_SysLabel**
-![]({{site.baseurl}}//images/ax/20150927-1-proj.PNG)
+![20150927-1-proj.PNG]({{site.baseurl}}/media/20150927-1-proj.PNG)
+
 
 And I have written a helper to import csv data to table. 
 
@@ -251,11 +255,5 @@ And if the label is the same as the label we imported to the csv, then, we will 
 
 
 After running with this job, you will find the info log similar as below:
-![]({{site.baseurl}}//images/ax/20150927-1-infolog.png)
-
-
-
-
-
-
+![20150927-1-infolog.png]({{site.baseurl}}/media/20150927-1-infolog.png)
 
