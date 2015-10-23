@@ -9,6 +9,7 @@ title: "iCQ-Web Development note"
 
 ## Problem set (问题集锦)
 ----
+
 ### ImproperlyConfigured at /path/, The included urlconf app.urls doesn't have any patterns in it
 先看看url.py
 {% highlight python %}
