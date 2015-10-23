@@ -3,14 +3,14 @@ layout: blog
 categories: blog
 tags: 
   - python
-published: true
+published: false
 title: "iCQ-Web Development note"
 ---
 
 
 ## Problem set
 
-## ImproperlyConfigured at /path/, The included urlconf app.urls doesn't have any patterns in it
+### ImproperlyConfigured at /path/, The included urlconf app.urls doesn't have any patterns in it
 先看看url.py
 {% highlight python %}
 urlpatterns = patterns('',
