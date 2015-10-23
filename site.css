@@ -127,7 +127,7 @@ em      { font-style:italic;}
 
 hr {
   margin:0 0 20px;
-  border:0;
+  border:1px solid #ccc;
   height:1px;
   background:#f8f8f8;
   }
