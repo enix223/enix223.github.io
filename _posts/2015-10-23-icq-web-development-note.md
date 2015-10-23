@@ -3,7 +3,7 @@ layout: blog
 categories: blog
 tags: 
   - python
-published: false
+published: true
 title: "iCQ-Web Development note"
 ---
 
