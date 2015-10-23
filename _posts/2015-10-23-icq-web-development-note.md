@@ -3,9 +3,10 @@ layout: blog
 categories: blog
 tags: 
   - python
-published: false
+published: true
 title: "iCQ-Web Development note"
 ---
+
 
 ## Problem set
 
@@ -36,4 +37,3 @@ class SSUserForgetView(TemplateView):
 {% endhighlight %}
 
 这样，这个问题就可以完美解决。
-
