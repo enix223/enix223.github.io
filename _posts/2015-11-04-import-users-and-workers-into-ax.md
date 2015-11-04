@@ -8,6 +8,7 @@ title: Import users and workers into AX
 ---
 
 
+
 ## PROGRAM ELEMENT
 
     +--------------+----------------------------+-------------------------------------------------+           
@@ -101,7 +102,7 @@ END
 
 ### BIT_EY_ImportHCMWorker
 
-{% hightlight  c %>
+{% hightlight  c %}
 
 static void BIT_EY_ImportHCMWorker(Args _args)
 {
@@ -137,11 +138,11 @@ static void BIT_EY_ImportHCMWorker(Args _args)
 
 }
 
-{% endhightlight %>
+{% endhightlight %}
 
 ### BIT_EY_ImportCSVToTable
 
-{% hightlight  c %>
+{% hightlight  c %}
 static void BIT_EY_ImportCSVToTable(Args _args)
 {
     Dialog dialog;
@@ -276,7 +277,7 @@ avifiles
         }
     }
 }
-{% endhightlight %>
+{% endhightlight %}
 
 
 ![XPO]({{site.baseurl}}/SharedProject_BIT_EY_ImportHCMWorker.xpo)
