@@ -1,10 +1,12 @@
 ---
 layout: blog
 categories: blog
-tags: null
-published: false
+tags: 
+  - "null"
+published: true
 title: Import users and workers into AX
 ---
+
 
 ## PROGRAM ELEMENT
 
@@ -278,9 +280,3 @@ avifiles
 
 
 ![XPO]({{site.baseurl}}/SharedProject_BIT_EY_ImportHCMWorker.xpo)
-
-
-    
-    
-    
-
