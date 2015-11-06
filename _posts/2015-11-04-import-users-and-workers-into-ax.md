@@ -64,10 +64,10 @@ Clear the table: `If checked, then the table will be cleared before importing th
 
 Log level:
 
-*.	Debug: Verbose mode, and debug message will be display in the infolog
-*.	Info: Just information, warning, error will be shown in the infolog
-*.	Warning: Only warning, error message will be shown in the infolog
-*.	Error: Only error message will be shown in the infolog
+* Debug: Verbose mode, and debug message will be display in the infolog
+* Info: Just information, warning, error will be shown in the infolog
+* Warning: Only warning, error message will be shown in the infolog
+* Error: Only error message will be shown in the infolog
 
 ---
 
