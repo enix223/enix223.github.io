@@ -15,11 +15,11 @@ title: Import users and workers into AX
     +--------------+----------------------------+-------------------------------------------------+          
     |Job	       | BIT_EY_ImportHCMWorker	    | Import worker and user dialog                   |     
     +--------------+----------------------------+-------------------------------------------------+         
-    |Job           | BIT_EY_ImportCSVToTable | Load the csv data into AX table                 |     
+    |Job           | BIT_EY_ImportCSVToTable   | Load the csv data into AX table                 |     
     +--------------+----------------------------+-------------------------------------------------+         
     |Class         | BIT_EY_ImportHCMWorker     | Import worker and user main program             |     
     +--------------+----------------------------+-------------------------------------------------+         
-    |Table         | BIT_EY_UserList	     | user and worker info to be imported             |                                                   
+    |Table         | BIT_EY_UserList	    | user and worker info to be imported             |                                                   
     +--------------+----------------------------+-------------------------------------------------+         
 	Table 1  Program related elements
 
@@ -92,8 +92,6 @@ d)	Check the infolog and find out whether any warning and error message occurred
 8. Copy the role from SameAs user if the role is not exited. If failed, then raise an error “User [user: %1, from: %2] role not copied”, and go to step 1, else go to next step     
 9. Build user and worker relationship if the relationship is not exited. If failed, raise an error “User[%1] and Worker[%2] relation build faield”, and go to step 1, else go to next step    
 10. Copy worker parameters, including Parts, WMS, Service, Power systems parameters. If failed, raise an error “Copy worker[from: %1, to:%2] parameters failed”, and go to step 1.    
-
-END
 
 ---
 
