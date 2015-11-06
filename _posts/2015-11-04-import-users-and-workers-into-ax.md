@@ -36,45 +36,38 @@ b)	Import into Target server
 
 ### 2.	Prepare the user list
 
-a)	Prepare the user list according to the import template as below. Please note, NEVER CHANGE THE TEMPLATE HEADER NAME, as the header is used as the AX table field name.     
-b)	Save the above data to CSV format, with comma as delimiter.     
-c)	Run Job: BIT_EY_ImportCSVToTable to import the CSV into BIT_EY_UserList table         
+1.	Prepare the user list according to the import template as below. Please note, NEVER CHANGE THE TEMPLATE HEADER NAME, as the header is used as the AX table field name.     
+2.	Save the above data to CSV format, with comma as delimiter.     
+3.	Run Job: BIT_EY_ImportCSVToTable to import the CSV into BIT_EY_UserList table         
 ![ax-2-3.PNG]({{site.baseurl}}/media/ax-2-3.PNG)            
-
-d)	Please use the default setting, except the CSV path, and then click <OK>          
+4.	Please use the default setting, except the CSV path, and then click `OK`         
 ![ax-2-4.PNG]({{site.baseurl}}/media/ax-2-4.PNG)              
-
- 
-   Parameters    
-   Table to be import: <Choose the table name which you want to import the csv to>    
-   Delimiter: <The delimiter which you used in the CSV file>    
-   Clear the table: <If checked, then the table will be cleared before importing the data into it>  
-
-e)	If no error, you can find a similar infolog as below:       
+5. Parameters    
+Table to be import: `Choose the table name which you want to import the csv to`        
+Delimiter: `The delimiter which you used in the CSV file`    
+Clear the table: `If checked, then the table will be cleared before importing the data into it`  
+5. If no error, you can find a similar infolog as below:       
 ![ax-2-5.PNG]({{site.baseurl}}/media/ax-2-5.PNG)     
-
-f)	Double check your data with browsing the target table(BIT_EY_UserList)     
+6. Double check your data with browsing the target table(BIT_EY_UserList)     
 ![ax-2-6.PNG]({{site.baseurl}}/media/ax-2-6.PNG)      
 ![ax-2-7.PNG]({{site.baseurl}}/media/ax-2-7.PNG)      
 
    
 ### 3.	Start to Import
 
-a)	Switch to the target company. THIS IS IMPORTANT, PLEASE MAKE SURE YOU RUN THE PROGRAM UNDER THE CORRECT COMPANY.    
-b)	Run Job BIT_EY_ImportHCMWorker             
+1. Switch to the target company. THIS IS IMPORTANT, PLEASE MAKE SURE YOU RUN THE PROGRAM UNDER THE CORRECT COMPANY.    
+2. Run Job BIT_EY_ImportHCMWorker             
 ![ax-2-8.PNG]({{site.baseurl}}/media/ax-2-8.PNG)              
-
-c)	Choose the log level, and then click <OK>            
+3. Choose the log level, and then click `OK`            
 ![ax-2-9.PNG]({{site.baseurl}}/media/ax-2-9.PNG)             
-
  
 Log level:
-1.	Debug: Verbose mode, and debug message will be display in the infolog
-2.	Info: Just information, warning, error will be shown in the infolog
-3.	Warning: Only warning, error message will be shown in the infolog
-4.	Error: Only error message will be shown in the infolog
+*	Debug: Verbose mode, and debug message will be display in the infolog
+*	Info: Just information, warning, error will be shown in the infolog
+*	Warning: Only warning, error message will be shown in the infolog
+*	Error: Only error message will be shown in the infolog
 
-d)	Check the infolog and find out whether any warning and error message occurred.
+4. Check the infolog and find out whether any warning and error message occurred.
 
 
 
