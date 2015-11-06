@@ -103,6 +103,7 @@ END
 ## X++ Code
 
 ### BIT_EY_ImportHCMWorker
+
 {% highlight c %}
 static void BIT_EY_ImportHCMWorker(Args _args)
 {
@@ -119,7 +120,9 @@ static void BIT_EY_ImportHCMWorker(Args _args)
 }
 {% endhighlight %}
 
+
 ### BIT_EY_ImportCSVToTable
+
 
 {% highlight c %}
     static void BIT_EY_ImportCSVToTable(Args _args)
