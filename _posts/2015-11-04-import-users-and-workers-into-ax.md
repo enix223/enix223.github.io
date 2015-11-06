@@ -8,21 +8,18 @@ title: Import users and workers into AX
 ---
 
 
-
-
-
 ## PROGRAM ELEMENT
 
     +--------------+----------------------------+-------------------------------------------------+           
     |Element type  | Element                    |  Description                                    |        
     +--------------+----------------------------+-------------------------------------------------+          
-    |Job	       | BIT_EY_ImportHCMWorker	 | Import worker and user dialog                   |     
+    |Job	       | BIT_EY_ImportHCMWorker	    | Import worker and user dialog                   |     
     +--------------+----------------------------+-------------------------------------------------+         
     |Job           | BIT_EY_ImportCSVToTable	| Load the csv data into AX table                 |     
     +--------------+----------------------------+-------------------------------------------------+         
     |Class         | BIT_EY_ImportHCMWorker     | Import worker and user main program             |     
     +--------------+----------------------------+-------------------------------------------------+         
-    |Table         | BIT_EY_UserList	        | user and worker info to be imported             |                                                   
+    |Table         | BIT_EY_UserList	      | user and worker info to be imported             |                                                   
     +--------------+----------------------------+-------------------------------------------------+         
 	Table 1  Program related elements
 
