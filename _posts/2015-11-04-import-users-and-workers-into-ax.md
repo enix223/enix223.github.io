@@ -104,43 +104,24 @@ END
 
 ### BIT_EY_ImportHCMWorker
 {% highlight c %}
-    static void BIT_EY_ImportHCMWorker(Args _args)
-    {
-        BIT_EY_ImportHCMWorker service;
-        Dialog dialog;
-        dialog = new Dialog('Start to import Workers?');
-        dialog.run();
-        if (dialog.run())
-        {
-            service = new BIT_EY_ImportHCMWorker();
-            service.setLogLevel(BIT_EY_LogLevel::Debug);
-            service.run();
-        }
-    
-    
-    
-    
-    
-        /*SecurityUserRole securityUserRole;
-        OMUserRoleOrganization omUserRoleOrganization;
-        SecurityRole securityRole;
-        UserInfo userinfo;
-    
-        while select securityUserRole
-        join userinfo
-            where securityUserRole.User == userinfo.id
-            && userinfo.networkAlias == 'lincy.lin.chunyu'
-        join securityRole
-            where securityUserRole.SecurityRole == securityRole.RecId
-        {
-            info(strFmt('%1 user: %2', securityUserRole.SecurityRole, securityRole.Name));
-        }*/
-    
-    }
+static void BIT_EY_ImportHCMWorker(Args _args)
+{
+  BIT_EY_ImportHCMWorker service;
+  Dialog dialog;
+  dialog = new Dialog('Start to import Workers?');
+  dialog.run();
+  if (dialog.run())
+  {
+    service = new BIT_EY_ImportHCMWorker();
+    service.setLogLevel(BIT_EY_LogLevel::Debug);
+    service.run();
+  }
+}
 {% endhighlight %}
 
 ### BIT_EY_ImportCSVToTable
 
+{% highlight c %}
     static void BIT_EY_ImportCSVToTable(Args _args)
     {
         Dialog dialog;
@@ -275,3 +256,4 @@ END
             }
         }
     }
+{% endhighlight %}
