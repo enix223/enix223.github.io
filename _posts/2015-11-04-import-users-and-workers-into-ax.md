@@ -60,16 +60,14 @@ Clear the table: `If checked, then the table will be cleared before importing th
 ![ax-2-8.PNG]({{site.baseurl}}/media/ax-2-8.PNG)              
 3. Choose the log level, and then click `OK`            
 ![ax-2-9.PNG]({{site.baseurl}}/media/ax-2-9.PNG)             
- 
-Log level:
-*	Debug: Verbose mode, and debug message will be display in the infolog
-*	Info: Just information, warning, error will be shown in the infolog
-*	Warning: Only warning, error message will be shown in the infolog
-*	Error: Only error message will be shown in the infolog
-
 4. Check the infolog and find out whether any warning and error message occurred.
 
+Log level:
 
+*.	Debug: Verbose mode, and debug message will be display in the infolog
+*.	Info: Just information, warning, error will be shown in the infolog
+*.	Warning: Only warning, error message will be shown in the infolog
+*.	Error: Only error message will be shown in the infolog
 
 ---
 
