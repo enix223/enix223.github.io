@@ -82,16 +82,16 @@ d)	Check the infolog and find out whether any warning and error message occurred
 
 ## PROGRAM LOGIC
 
-Step 1: Read a record from BIT_EY_UserList, if no more record found, then go to END    
-Step 2: Lookup the worker with employee number, if record found then go to Step 3     
-Step 3: Lookup the worker with SameAs ad user, the first worker under this user will be used, if no record found, then raise an error message “SameAs user[xxxx] worker not found”, and go to Step 1, else if new worker found, then go to step 5, else go to step 4     
-Step 4: Create the worker, if failed, raise an error “Employee xxxx[xxx] create failed”, and go to step 1, else go to next step     
-Step 5: Copy order class if not existed. Copy from SameAs worker.     
-Step 6: Search the user with Domain and SDIAD field, if record found, then go to step 8, else go to step 7     
-Step 7: Import the user from AD Domain, if failed, then raise an error “User xxxx import failed”, and go to Step 1, else go to next step      
-Step 8: Copy the role from SameAs user if the role is not exited. If failed, then raise an error “User [user: %1, from: %2] role not copied”, and go to step 1, else go to next step     
-Step 9: Build user and worker relationship if the relationship is not exited. If failed, raise an error “User[%1] and Worker[%2] relation build faield”, and go to step 1, else go to next step    
-Step 10: Copy worker parameters, including Parts, WMS, Service, Power systems parameters. If failed, raise an error “Copy worker[from: %1, to:%2] parameters failed”, and go to step 1.    
+1. Read a record from BIT_EY_UserList, if no more record found, then go to END    
+2. Lookup the worker with employee number, if record found then go to Step 3     
+3. Lookup the worker with SameAs ad user, the first worker under this user will be used, if no record found, then raise an error message “SameAs user[xxxx] worker not found”, and go to Step 1, else if new worker found, then go to step 5, else go to step 4     
+4. Create the worker, if failed, raise an error “Employee xxxx[xxx] create failed”, and go to step 1, else go to next step     
+5. Copy order class if not existed. Copy from SameAs worker.     
+6. Search the user with Domain and SDIAD field, if record found, then go to step 8, else go to step 7     
+7. Import the user from AD Domain, if failed, then raise an error “User xxxx import failed”, and go to Step 1, else go to next step      
+8. Copy the role from SameAs user if the role is not exited. If failed, then raise an error “User [user: %1, from: %2] role not copied”, and go to step 1, else go to next step     
+9. Build user and worker relationship if the relationship is not exited. If failed, raise an error “User[%1] and Worker[%2] relation build faield”, and go to step 1, else go to next step    
+10. Copy worker parameters, including Parts, WMS, Service, Power systems parameters. If failed, raise an error “Copy worker[from: %1, to:%2] parameters failed”, and go to step 1.    
 
 END
 
