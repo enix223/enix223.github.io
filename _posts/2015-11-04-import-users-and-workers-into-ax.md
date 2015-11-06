@@ -76,7 +76,7 @@ Log level:
 
 d)	Check the infolog and find out whether any warning and error message occurred.
 
-<END OF IMPORT PROCESS>
+
 
 ---
 
