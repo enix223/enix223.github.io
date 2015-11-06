@@ -60,7 +60,7 @@ Clear the table: `If checked, then the table will be cleared before importing th
 ![ax-2-8.PNG]({{site.baseurl}}/media/ax-2-8.PNG)              
 3. Choose the log level, and then click `OK`            
 ![ax-2-9.PNG]({{site.baseurl}}/media/ax-2-9.PNG)             
-4. Check the infolog and find out whether any warning and error message occurred.
+4. Check the infolog and find out whether any warning and error message occurred.    
 
 Log level:
 
