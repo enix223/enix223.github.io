@@ -10,6 +10,7 @@ title: Import users and workers into AX
 
 
 
+
 ## PROGRAM ELEMENT
 
     +--------------+----------------------------+-------------------------------------------------+           
@@ -102,7 +103,7 @@ END
 ## X++ Code
 
 ### BIT_EY_ImportHCMWorker
-
+{% highlight c %}
     static void BIT_EY_ImportHCMWorker(Args _args)
     {
         BIT_EY_ImportHCMWorker service;
@@ -136,7 +137,7 @@ END
         }*/
     
     }
-
+{% endhighlight %}
 
 ### BIT_EY_ImportCSVToTable
 
