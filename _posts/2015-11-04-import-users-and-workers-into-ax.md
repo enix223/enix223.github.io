@@ -9,6 +9,7 @@ title: Import users and workers into AX
 
 
 
+
 ## PROGRAM ELEMENT
 
     +--------------+----------------------------+-------------------------------------------------+           
@@ -102,182 +103,174 @@ END
 
 ### BIT_EY_ImportHCMWorker
 
-{% hightlight  c %}
-
-static void BIT_EY_ImportHCMWorker(Args _args)
-{
-    BIT_EY_ImportHCMWorker service;
-    Dialog dialog;
-    dialog = new Dialog('Start to import Workers?');
-    dialog.run();
-    if (dialog.run())
+    static void BIT_EY_ImportHCMWorker(Args _args)
     {
-        service = new BIT_EY_ImportHCMWorker();
-        service.setLogLevel(BIT_EY_LogLevel::Debug);
-        service.run();
+        BIT_EY_ImportHCMWorker service;
+        Dialog dialog;
+        dialog = new Dialog('Start to import Workers?');
+        dialog.run();
+        if (dialog.run())
+        {
+            service = new BIT_EY_ImportHCMWorker();
+            service.setLogLevel(BIT_EY_LogLevel::Debug);
+            service.run();
+        }
+    
+    
+    
+    
+    
+        /*SecurityUserRole securityUserRole;
+        OMUserRoleOrganization omUserRoleOrganization;
+        SecurityRole securityRole;
+        UserInfo userinfo;
+    
+        while select securityUserRole
+        join userinfo
+            where securityUserRole.User == userinfo.id
+            && userinfo.networkAlias == 'lincy.lin.chunyu'
+        join securityRole
+            where securityUserRole.SecurityRole == securityRole.RecId
+        {
+            info(strFmt('%1 user: %2', securityUserRole.SecurityRole, securityRole.Name));
+        }*/
+    
     }
 
-
-
-
-
-    /*SecurityUserRole securityUserRole;
-    OMUserRoleOrganization omUserRoleOrganization;
-    SecurityRole securityRole;
-    UserInfo userinfo;
-
-    while select securityUserRole
-    join userinfo
-        where securityUserRole.User == userinfo.id
-        && userinfo.networkAlias == 'lincy.lin.chunyu'
-    join securityRole
-        where securityUserRole.SecurityRole == securityRole.RecId
-    {
-        info(strFmt('%1 user: %2', securityUserRole.SecurityRole, securityRole.Name));
-    }*/
-
-}
-
-{% endhightlight %}
 
 ### BIT_EY_ImportCSVToTable
 
-{% hightlight  c %}
-static void BIT_EY_ImportCSVToTable(Args _args)
-{
-    Dialog dialog;
-    DialogField dialogFileName;
-    DialogField dialogDelimiter;
-    DialogField dialogHeader;
-    DialogField dialogClearTable;
-    DialogField dialogTableName;
-
-    Filename filename;
-    Delimiter delimiter;
-    NoYesId header;
-    NoYesId clearTable;
-    TableName tableName;
-
-    FileIOPermission permission;
-    TextIO textIO;
-    BIT_EY_UserList tbl; // Table to be imported
-    Common table;
-    DictTable dictTable;
-    int fieldId;
-
-    str s11;
-    int i, j;
-    Container c1,c2, colNames;
-    CompanyInfo companyInfoLoc = CompanyInfo::find();
-    Container filterCriteria;
-File
-avifiles
-    ;
-
-    dialog = new Dialog("Importing Text File");
-    dialogFileName = dialog.addField(extendedTypeStr(Filenameopen), "File Name");
-    dialogTableName = dialog.addField(extendedTypeStr(TableName), "Table to imported");
-    dialogDelimiter = dialog.addField(extendedtypestr(Delimiter), "Delimiter");
-    dialogClearTable = dialog.addField(extendedTypeStr(NoYesId), "Clear the table?");
-
-    filterCriteria = ['*.csv'];
-    filterCriteria = dialog.filenameLookupFilter(filterCriteria);
-
-    // Default value
-    dialogDelimiter.value(',');
-    dialogClearTable.value(NoYes::Yes);
-    dialogTableName.value('BIT_EY_UserList'); // assign a defalt table name
-
-    dialog.run();
-    if (dialog.run())
+    static void BIT_EY_ImportCSVToTable(Args _args)
     {
-        filename = dialogFileName.value();
-        delimiter = dialogDelimiter.value();
-        clearTable = dialogClearTable.value();
-        tableName = dialogTableName.value();
-    }
-    else
-    {
-        return;
-    }
-
-    if(!filename || !delimiter || !tableName)
-    {
-        info("Filename/delimiter/table name must be filled");
-        return;
-    }
-
-    permission = new fileIOpermission(filename,#io_read);
-    permission.assert();
-    textIO = new TextIO(filename,#io_read);
-    textIO.inFieldDelimiter(delimiter);
-    dictTable = new DictTable(tableName2Id(tableName));
-
-    header = true;
-
-    if(textIO)
-    {
-        // Clear the table if needed
-        if(clearTable)
+        Dialog dialog;
+        DialogField dialogFileName;
+        DialogField dialogDelimiter;
+        DialogField dialogHeader;
+        DialogField dialogClearTable;
+        DialogField dialogTableName;
+    
+        Filename filename;
+        Delimiter delimiter;
+        NoYesId header;
+        NoYesId clearTable;
+        TableName tableName;
+    
+        FileIOPermission permission;
+        TextIO textIO;
+        BIT_EY_UserList tbl; // Table to be imported
+        Common table;
+        DictTable dictTable;
+        int fieldId;
+    
+        str s11;
+        int i, j;
+        Container c1,c2, colNames;
+        CompanyInfo companyInfoLoc = CompanyInfo::find();
+        Container filterCriteria;
+    File
+    avifiles
+        ;
+    
+        dialog = new Dialog("Importing Text File");
+        dialogFileName = dialog.addField(extendedTypeStr(Filenameopen), "File Name");
+        dialogTableName = dialog.addField(extendedTypeStr(TableName), "Table to imported");
+        dialogDelimiter = dialog.addField(extendedtypestr(Delimiter), "Delimiter");
+        dialogClearTable = dialog.addField(extendedTypeStr(NoYesId), "Clear the table?");
+    
+        filterCriteria = ['*.csv'];
+        filterCriteria = dialog.filenameLookupFilter(filterCriteria);
+    
+        // Default value
+        dialogDelimiter.value(',');
+        dialogClearTable.value(NoYes::Yes);
+        dialogTableName.value('BIT_EY_UserList'); // assign a defalt table name
+    
+        dialog.run();
+        if (dialog.run())
         {
-            table = BIT_EY_Helper::getTable(tableName2Id(tableName), true);
-
-            ttsBegin;
-            while select table
-            {
-                table.delete();
-            }
-            ttsCommit;
-            info(strFmt('Table %1<id:%2> cleared', tableName, tableName2Id(tableName)));
+            filename = dialogFileName.value();
+            delimiter = dialogDelimiter.value();
+            clearTable = dialogClearTable.value();
+            tableName = dialogTableName.value();
         }
-
-        i = 1;
-        while(textIO.status() == IO_Status::Ok)
+        else
         {
-            c1 = textIO.read();
-
-            if(header)
+            return;
+        }
+    
+        if(!filename || !delimiter || !tableName)
+        {
+            info("Filename/delimiter/table name must be filled");
+            return;
+        }
+    
+        permission = new fileIOpermission(filename,#io_read);
+        permission.assert();
+        textIO = new TextIO(filename,#io_read);
+        textIO.inFieldDelimiter(delimiter);
+        dictTable = new DictTable(tableName2Id(tableName));
+    
+        header = true;
+    
+        if(textIO)
+        {
+            // Clear the table if needed
+            if(clearTable)
             {
-                colNames = c1;
-                header = false;
-                continue;
+                table = BIT_EY_Helper::getTable(tableName2Id(tableName), true);
+    
+                ttsBegin;
+                while select table
+                {
+                    table.delete();
+                }
+                ttsCommit;
+                info(strFmt('Table %1<id:%2> cleared', tableName, tableName2Id(tableName)));
             }
-
-            // Skip empty rows
-            if(conLen(c1) == 0)
+    
+            i = 1;
+            while(textIO.status() == IO_Status::Ok)
             {
-                continue;
+                c1 = textIO.read();
+    
+                if(header)
+                {
+                    colNames = c1;
+                    header = false;
+                    continue;
+                }
+    
+                // Skip empty rows
+                if(conLen(c1) == 0)
+                {
+                    continue;
+                }
+    
+                // Create a new record
+                table = dictTable.makeRecord();
+    
+                // Loop over the colunm names and assign values to the table
+                for(j = 1; j <= conLen(colNames); j ++)
+                {
+                    fieldId = fieldName2id(tableName2Id(tableName), conPeek(colNames, j));
+                    table.(fieldId) = conPeek(c1, j);
+                }
+    
+                // Skip when row insert got error
+                try
+                {
+                    table.insert();
+                }
+                catch(Exception::Error)
+                {
+                    error(strfmt("Item : %1 not created", i));
+                    continue;
+                }
+    
+                info(strfmt("Item : %1 has been created", i));
+                sleep(10);
+    
+                i ++;
             }
-
-            // Create a new record
-            table = dictTable.makeRecord();
-
-            // Loop over the colunm names and assign values to the table
-            for(j = 1; j <= conLen(colNames); j ++)
-            {
-                fieldId = fieldName2id(tableName2Id(tableName), conPeek(colNames, j));
-                table.(fieldId) = conPeek(c1, j);
-            }
-
-            // Skip when row insert got error
-            try
-            {
-                table.insert();
-            }
-            catch(Exception::Error)
-            {
-                error(strfmt("Item : %1 not created", i));
-                continue;
-            }
-
-            info(strfmt("Item : %1 has been created", i));
-            sleep(10);
-
-            i ++;
         }
     }
-}
-{% endhightlight %}
-
-
-![XPO]({{site.baseurl}}/SharedProject_BIT_EY_ImportHCMWorker.xpo)
