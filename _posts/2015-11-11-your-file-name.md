@@ -3,7 +3,8 @@
 categories: blog
 published: true
 title: Test note 1
----Hi this is the first note of here
+---
+Hi this is the first note of here
 
   
 
