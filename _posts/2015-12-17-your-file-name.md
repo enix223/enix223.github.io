@@ -13,8 +13,8 @@ Two player:
 
   
 
-![cb0894a0f7450db54f58b749d6a0d0b9](media/cb0894a0f7450db54f58b749d6a0d0b9.png
-)
+![cb0894a0f7450db54f58b749d6a0d0b9](/media/cb0894a0f7450db54f58b749d6a0d0b9.pn
+g)
 
   
 
@@ -24,8 +24,8 @@ Characteristics: further detail about service
 
   
 
-![39c480d2c321cdb54fa1e56995d27c93](media/39c480d2c321cdb54fa1e56995d27c93.png
-)
+![39c480d2c321cdb54fa1e56995d27c93](/media/39c480d2c321cdb54fa1e56995d27c93.pn
+g)
 
   
 
@@ -39,8 +39,8 @@ Central 和 peripheral 如何交互
 
   
 
-![5db71210ff02d4ae3b86c2b882743e5d](media/5db71210ff02d4ae3b86c2b882743e5d.png
-)
+![5db71210ff02d4ae3b86c2b882743e5d](/media/5db71210ff02d4ae3b86c2b882743e5d.pn
+g)
 
   
 
@@ -48,8 +48,8 @@ Central 和 peripheral 如何交互
 
   
 
-![6d6b7386029dd801b4878f880cb81ee4](media/6d6b7386029dd801b4878f880cb81ee4.png
-)
+![6d6b7386029dd801b4878f880cb81ee4](/media/6d6b7386029dd801b4878f880cb81ee4.pn
+g)
 
   
 
@@ -59,15 +59,15 @@ Central 和 peripheral 如何交互
 
   
 
-![fd3ffa577b14d17be8ed8f7ce619b24a](media/fd3ffa577b14d17be8ed8f7ce619b24a.png
-)
+![fd3ffa577b14d17be8ed8f7ce619b24a](/media/fd3ffa577b14d17be8ed8f7ce619b24a.pn
+g)
 
   
 
   
 
-![720408a025bb786595d9ad156f19ff15](media/720408a025bb786595d9ad156f19ff15.png
-)
+![720408a025bb786595d9ad156f19ff15](/media/720408a025bb786595d9ad156f19ff15.pn
+g)
 
   
 
