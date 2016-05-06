@@ -1,7 +1,8 @@
 ---
 layout: blog
 categories: blog
-tags: "iOS"
+tags: 
+  - iOS
 published: true
 title: iOS 常用代码集合
 ---
@@ -114,7 +115,7 @@ c) 判断是哪个component发生变化，如果是主component发生变化，�
 
 a) 通过tag获取 table view    
 
-		UITableView *tableView = (id)[self.view viewWithTag:1]
+	UITableView *tableView = (id)[self.view viewWithTag:1]
           
 b) 或者通过IBOutlet    
 
@@ -138,8 +139,8 @@ k) 添加自定义的table view cell: 首先创建一个继承于UITableViewCell
 
 l) 从nib加载UITableViewCell：
 
-		UINib *nib = [UINibnibWithNibName:@"nibResouceName"bundle:nil];
-		[tableView registerNib: nib forCellReuseIdentifier:@"cellIdentifier"];
+	UINib *nib = [UINibnibWithNibName:@"nibResouceName"bundle:nil];
+	[tableView registerNib: nib forCellReuseIdentifier:@"cellIdentifier"];
         
 m) 使用section：添加：tableView: titleForHeaderInSection:方法，用于显示当前section的名字；indexPath.section － 当前的section，indexPath.row - 当前的row index    
 
@@ -151,9 +152,9 @@ p) 刷新table view: `[self.tableView reloadData]`;
 
 q) table view增加偏移，不与status bar重叠
 
-		UIEdgeInsets contentInset = self.tableView.contentInset;
-		contentInset.top = 20;
-		[self.tableView setContentInset: contentInset];
+	UIEdgeInsets contentInset = self.tableView.contentInset;
+	contentInset.top = 20;
+	[self.tableView setContentInset: contentInset];
           
 
 ## Collection view
@@ -214,19 +215,19 @@ b) 实现table View delegate方法：tableView: `moveRowAtIndexPath: toIndexPath
 
 2. 从Nib中加载UIView
 
-		UINib *nib = [UINib nibWithNibName:@"nibResouceName" bundle:nil];
+	UINib *nib = [UINib nibWithNibName:@"nibResouceName" bundle:nil];
 
 3. 保存数据到User Default
 
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		[defaults setObject:objs forKey:@"your object"];
-		[defaults synchronize];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:objs forKey:@"your object"];
+	[defaults synchronize];
 
 4. 读取User default的数据
 
-       	NSUserDefaults *defaults  = [NSUserDefaults standardUserDefaults];
-       	NSArray *data = [defaults objectForKey:@"your data key"];
-       	self.list = [data mutableCopy];
+	NSUserDefaults *defaults  = [NSUserDefaults standardUserDefaults];
+	NSArray *data = [defaults objectForKey:@"your data key"];
+    self.list = [data mutableCopy];
 
 5. Application setting bundle
 
@@ -631,5 +632,3 @@ KVC不直接调用object的方法，而是通过valueForKey, 查询并访问对�
 Trailing space -20 issues
 
 http://stackoverflow.com/questions/26447266/ios-autolayout-changes-leading-and-trailing-space/26729064
-
-
