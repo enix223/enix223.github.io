@@ -215,19 +215,19 @@ b) 实现table View delegate方法：tableView: `moveRowAtIndexPath: toIndexPath
 
 2. 从Nib中加载UIView
 
-	UINib *nib = [UINib nibWithNibName:@"nibResouceName" bundle:nil];
+		UINib *nib = [UINib nibWithNibName:@"nibResouceName" bundle:nil];
 
 3. 保存数据到User Default
 
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:objs forKey:@"your object"];
-	[defaults synchronize];
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		[defaults setObject:objs forKey:@"your object"];
+		[defaults synchronize];
 
 4. 读取User default的数据
 
-	NSUserDefaults *defaults  = [NSUserDefaults standardUserDefaults];
-	NSArray *data = [defaults objectForKey:@"your data key"];
-    self.list = [data mutableCopy];
+		NSUserDefaults *defaults  = [NSUserDefaults standardUserDefaults];
+		NSArray *data = [defaults objectForKey:@"your data key"];
+    	self.list = [data mutableCopy];
 
 5. Application setting bundle
 
