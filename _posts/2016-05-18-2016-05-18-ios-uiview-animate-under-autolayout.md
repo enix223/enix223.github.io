@@ -2,7 +2,7 @@
 layout: blog
 categories: blog
 published: false
-title: "2016-05-18-iOS-UIView-animate-under-autolayout"
+title: iOS UIView animate under autolayout
 ---
 # Scene
 
