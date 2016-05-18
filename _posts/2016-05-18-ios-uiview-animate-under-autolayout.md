@@ -1,7 +1,7 @@
 ---
 layout: blog
 categories: blog
-published: false
+published: true
 title: iOS UIView animate under autolayout
 ---
 # Scene
