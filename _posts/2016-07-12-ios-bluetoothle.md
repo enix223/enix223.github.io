@@ -3,6 +3,7 @@ layout: blog
 categories: blog
 published: true
 title: iOS BluetoothLE 开发资料汇总
+tags: ''
 ---
 iOS蓝牙开发搜集到的资料，以备后续查阅使用。
 
@@ -13,20 +14,14 @@ iOS蓝牙开发搜集到的资料，以备后续查阅使用。
 
 ## BLE 问题与解答
 
-[AudioSessionManager](https://github.com/Jawbone/AudioSessionManager/blob/master/AudioSessionManager.m)
+* [AudioSessionManager](https://github.com/Jawbone/AudioSessionManager/blob/master/AudioSessionManager.m)
 
+* [AVAudioSession bluetooth support](http://devmonologue.com/ios/tutorials/avaudiosession-bluetooth-support/)
 
-[AVAudioSession bluetooth support](http://devmonologue.com/ios/tutorials/avaudiosession-bluetooth-support/)
+* [AudioSession input from bluetooth output to line out or speaker](http://stackoverflow.com/questions/8305986/audiosession-input-from-bluetooth-output-to-line-out-or-speaker)
 
+* [Bluetooth mic recorder app](http://lifehacker.com/5879232/the-best-voice-recording-app-for-iphone)
 
-[AudioSession input from bluetooth output to line out or speaker](http://stackoverflow.com/questions/8305986/audiosession-input-from-bluetooth-output-to-line-out-or-speaker)
+* [iOS: Using Bluetooth audio output (kAudioSessionProperty_OverrideCategoryEnableBluetoothInput) AudioSession](http://stackoverflow.com/questions/14601517/ios-using-bluetooth-audio-output-kaudiosessionproperty-overridecategoryenableb)
 
-
-[Bluetooth mic recorder app](http://lifehacker.com/5879232/the-best-voice-recording-app-for-iphone)
-
-
-
-[iOS: Using Bluetooth audio output (kAudioSessionProperty_OverrideCategoryEnableBluetoothInput) AudioSession](http://stackoverflow.com/questions/14601517/ios-using-bluetooth-audio-output-kaudiosessionproperty-overridecategoryenableb)
-
-
-[iPhone蓝牙编程之实现语音聊天](http://tech.chinaunix.net/a2010/0129/845/000000845690.shtml)
+* [iPhone蓝牙编程之实现语音聊天](http://tech.chinaunix.net/a2010/0129/845/000000845690.shtml)
