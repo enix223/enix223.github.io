@@ -1,9 +1,8 @@
 ---
 layout: blog
 categories: blog
-published: false
+published: true
 title: iOS BluetoothLE 开发资料汇总
-tags: ''
 ---
 iOS蓝牙开发搜集到的资料，以备后续查阅使用。
 
