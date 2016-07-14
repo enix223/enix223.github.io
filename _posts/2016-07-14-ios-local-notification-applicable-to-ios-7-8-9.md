@@ -36,33 +36,44 @@ iOS 8版本之后，新增了以下3个类
 
 1. 创建NotificationAction
 
-		// create action
-        UIMutableUserNotificationAction *action = [[UIMutableUserNotificationAction alloc] init];
-        [action setIdentifier:@"your action"];
-        [action setActivationMode:UIUserNotificationActivationModeForeground];
+{% highlight Objective-C %}
+// create action
+UIMutableUserNotificationAction *action = [[UIMutableUserNotificationAction alloc] init];
+[action setIdentifier:@"your action"];
+[action setActivationMode:UIUserNotificationActivationModeForeground];
+{% endhighlight %}
         
 2. 创建Category
 
-		// create category
-        UIMutableUserNotificationCategory *category = [[UIMutableUserNotificationCategory alloc] init];
-        [category setIdentifier:@"your category"];
-        [category setActions:@[action] forContext:UIUserNotificationActionContextDefault];
-        
+{% highlight Objective-C %}
+// create category
+UIMutableUserNotificationCategory *category = [[UIMutableUserNotificationCategory alloc] init];
+[category setIdentifier:@"your category"];
+[category setActions:@[action] forContext:UIUserNotificationActionContextDefault];
+{% endhighlight %}
+
+   
 3. 创建Settings
 
-        // create settings
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:[NSSet setWithObject:category]];
+{% highlight Objective-C %}
+// create settings
+UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:[NSSet setWithObject:category]];
+{% endhighlight %}
 
 4. 创建本地推送消息
 
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
+{% highlight Objective-C %}
+UILocalNotification *notification = [[UILocalNotification alloc] init];
+{% endhighlight %}
         
-        // iOS8版本后新增的方法, 设置为刚刚注册的UIMutableUserNotificationCategory的identifier
-        [notification setCategory:@"your category"];
+// iOS8版本后新增的方法, 设置为刚刚注册的UIMutableUserNotificationCategory的identifier
+[notification setCategory:@"your category"];
 
-        [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-        [notification setTimeZone:[NSTimeZone defaultTimeZone]];
-        [notification setAlertBody:@"Network is reachable."];
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+[notification setTimeZone:[NSTimeZone defaultTimeZone]];
+[notification setAlertBody:@"Network is reachable."];
+[[UIApplication sharedApplication] scheduleLocalNotification:notification];
+{% endhighlight %}
+
 
 这样，就完成了最基本的本地消息推送.
