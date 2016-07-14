@@ -3,7 +3,6 @@ layout: blog
 categories: blog
 published: true
 title: iOS 本地消息推送 Local notification (Applicable to iOS 7/8/9)
-tags: ''
 ---
 iOS 从4.0开始允许开发者使用本地推送(`UILocalNotification`).而在实际开发过程中，需根据实际系统的版本，编写不同的设置初始化代码.
 
@@ -77,3 +76,7 @@ UILocalNotification *notification = [[UILocalNotification alloc] init];
 
 
 这样，就完成了最基本的本地消息推送.
+
+参考
+1. http://blog.csdn.net/lixing333/article/details/48375947
+2. http://blog.jobbole.com/51660/
