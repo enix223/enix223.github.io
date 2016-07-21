@@ -15,7 +15,7 @@ tags: ''
     
 2. 使用supervisor并开启node debug模式
 
-		$ supervisor -x node-debug index.js
+		$ supervisor -- --debug index.js
     
 3. nodejs 调试工具: node-inspector
 
