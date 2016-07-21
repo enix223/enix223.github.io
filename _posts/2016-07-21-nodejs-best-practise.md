@@ -5,7 +5,7 @@ published: false
 title: Nodejs开发实践
 tags: ''
 ---
-### 使用技巧
+## Nodejs开发技巧
 
 1. 监控项目文件改变，并重启server    
 
@@ -23,3 +23,13 @@ tags: ''
 	
     	# 打开node-inspector, 之后就可以通过chrome浏览器调试代码
 		$ node-inspector &
+
+## Mongoose实践
+
+1. 定义schema后，指定对应的collection名字
+
+		// 指定mongodb的collecition名字为'userinfo'
+        var UserInfo = new Schema({
+          username : String,
+          password : String 
+        }, { collection: 'userinfo' });
