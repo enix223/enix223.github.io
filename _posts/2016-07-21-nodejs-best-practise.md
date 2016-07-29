@@ -1,7 +1,7 @@
 ---
 layout: blog
 categories: blog
-published: false
+published: true
 title: Nodejs开发实践
 tags: ''
 ---
@@ -62,6 +62,36 @@ tags: ''
         	}
         };
 
+3. 根据document中的sub-document查找，并只返回匹配的sub-document
+
+		/*
+         Category: {categoryName: 'ABC', books:[{bookName: 'BBQ'}, {bookName: 'CCD'}]}
+         现在需要按books.bookName查找
+         */
+         CategoryModel.find({"books.bookName": 'BBQ'}, function(err, result){});
+         
+         // 以上语句，默认返回整个document，也就是仍然包括CCD的book，如果需要只选择 BBQ的book，可以加上如下语句：
+         CategoryModel.find(
+         	{"books.bookName": 'BBQ'},
+            {books: {'$elemMatch': {bookName: 'BBQ'}}}
+            function(err, result){}
+         );
+         
+         // 或者使用Positional operator `$`
+         CategoryModel.find(
+         	{"books.bookName": 'BBQ'},
+            {'books.$': 1}
+            function(err, result){}
+         );
+         
+4. select语句排除某些field (如果某个document有很多field，而我们只需要滤掉其中几个，可以使用如下语法)
+
+		CategoryModel.find(
+        	{}, // Finding criteria
+            {'books': 0}, // 过滤掉books这个field，也就是结果中不会包含books这个field
+            function(err, result)
+        );
+
 
 ## MongoDB实践
 
@@ -74,3 +104,5 @@ tags: ''
 
 		// 添加category, slug FIELD
 		db.catalog.update({}, {$set:{category: 'cheetsheet', slug: 'vi'}});
+         
+        
