@@ -2,8 +2,8 @@
   "applinks": {
     "apps": [],
     "details": {
-      "N9HG25YR8L.com.enixyu.AppSchema": {
-        "paths":[ "/openapp" ]
+      "N9HG25YR8L.com.enixyu.HelloApp": {
+        "paths":[ "/open-hello-app" ]
       }
     }
   }
