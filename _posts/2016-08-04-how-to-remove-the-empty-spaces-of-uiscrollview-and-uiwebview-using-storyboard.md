@@ -1,7 +1,7 @@
 ---
 layout: blog
 categories: blog
-published: false
+published: true
 title: How to remove the empty spaces of UIScrollView and UIWebView  using Storyboard
 ---
 This is a post about how to remove empty spaces when using Storyboard and auto layout to create UIScrollView and UIWebView.
