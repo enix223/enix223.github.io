@@ -1,7 +1,7 @@
 ---
 layout: blog
 categories: blog
-published: false
+published: true
 title: How to use QuickBlue to debug your BLE device
 ---
 This post is about to describe how to use my iOS app, named `QuickBlue` to help you debugging your BLE device. There are many app in apple store to work with BLE device, and the most favorite one, should be `lightBlue`. It is really powerful, and you can even use it to creaet many virtual devices. But from my point of view, it dose have some weakness.
