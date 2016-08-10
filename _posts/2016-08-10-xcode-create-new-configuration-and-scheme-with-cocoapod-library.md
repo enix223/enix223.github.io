@@ -1,7 +1,7 @@
 ---
 layout: blog
 categories: blog
-published: false
+published: true
 title: '[Xcode] Create New configuration and scheme with Cocoapod library'
 ---
 _**Scenario**_
