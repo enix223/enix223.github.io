@@ -3,8 +3,9 @@ layout: blog
 categories: blog
 published: true
 title: '[Xcode] Create New configuration and scheme with Cocoapod library'
+tags: ''
 ---
-_**Scenario**_
+## _**Scenario**_
 
   
 
@@ -14,23 +15,13 @@ since we need our user use some preload setting provided by us (e.g., login
 user name, and preload data for that user). So I have create some MACRO in the
 source code, like that:
 
-  
-
     /// FMDB
-
     #define HB_FMDB_PATH            @“XXXXXXX.db"
-
     #ifdef TEST
-
         #define HB_FMDB_INIT_SQL        @"init_test.sql"
-
     #else
-
         #define HB_FMDB_INIT_SQL        @"init.sql"
-
     #endif
-
-  
 
 We want to compile the source base on the MACRO. And distribute the archive
 base on the MACRO too. So we have to leverage the **Configuration** and
@@ -38,7 +29,7 @@ base on the MACRO too. So we have to leverage the **Configuration** and
 
   
 
-_**Steps**_
+## _**Steps**_
 
   
 
@@ -176,7 +167,7 @@ Yowww, build success.
 
   
 
-_**Summary**_
+## _**Summary**_
 
   
 
