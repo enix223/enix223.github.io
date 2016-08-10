@@ -1,8 +1,8 @@
 ---
 layout: blog
 categories: blog
-published: true
-title: [Xcode] Create New configuration and scheme with Cocoapod library
+published: false
+title: '[Xcode] Create New configuration and scheme with Cocoapod library'
 ---
 _**Scenario**_
 
@@ -16,19 +16,19 @@ source code, like that:
 
   
 
-/// FMDB
+    /// FMDB
 
-#define HB_FMDB_PATH            @“XXXXXXX.db"
+    #define HB_FMDB_PATH            @“XXXXXXX.db"
 
-#ifdef TEST
+    #ifdef TEST
 
-    #define HB_FMDB_INIT_SQL        @"init_test.sql"
+        #define HB_FMDB_INIT_SQL        @"init_test.sql"
 
-#else
+    #else
 
-    #define HB_FMDB_INIT_SQL        @"init.sql"
+        #define HB_FMDB_INIT_SQL        @"init.sql"
 
-#endif
+    #endif
 
   
 
@@ -187,10 +187,3 @@ _**Summary**_
   
 
 Happy coding… :)
-
-  
-
-  
-
-  
-
