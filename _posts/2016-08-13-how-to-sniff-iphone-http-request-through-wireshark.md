@@ -53,9 +53,9 @@ title: 如何通过wireshark抓取iphone的HTPP请求
 
   
 
-     rvictl -s [Your iphone UUID]
+	rvictl -s [Your iphone UUID]
 
-  
+
 
 ![8ba4930e614982db2a1c9936f2210fd8](/media/8ba4930e614982db2a1c9936f2210fd8.png)
 
@@ -93,6 +93,3 @@ Happy coding: )
 _参考文章_
 
 <http://useyourloaf.com/blog/remote-packet-capture-for-ios-devices/>
-
-  
-
