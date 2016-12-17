@@ -1,0 +1,81 @@
+<section class="section projects-section">
+    <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+    <div class="intro">
+        <p>These software are build during different stages of my career. For the projects I love most, it is showing in the first.</p>
+    </div><!--//intro-->
+    <div class="item">
+        <span class="project-title"><a href="https://itunes.apple.com/us/app/robotscratch/id1110772879?ls=1&mt=8" target="_blank">RobotScratch</a></span> - <span class="project-tagline"><p>RobotScratch is a Hexapod controlling app build on iOS platform. It is used to mainpluate the motions for the Hexapod. You can also used this app to control indiviual servo in the Hexapod. Health check, health report is also supported in this app. One of the most awesome funtionality is wireless firmware upgrade. No need to connect your robot with the PC, and download the firmware, you just need to make use of the app, and firware will automatically downloaded via Bluetooth. And you can also use RobotScratch to create a series motion control frame, and download to the robot so that the robot will move and dance according to your motion frames. It is really funny.</span>
+        <p>Features: </p>
+        <ul>
+            <li>Individual servo control</li>
+            <li>Motion editor for the robot, motion frame download and play</li>
+            <li>Wireless Firmware upgrade, easy and stable</li>
+            <li>Servo degree adjustment</li>
+            <li>Minimum &amp; Maximum degree setting for each servo</li>
+            <li>Live Health report for the connected Hexapod</li>
+            <li>Gamepad style control</li>
+        </ul>
+        <p>
+        Looking Inside: RobotScratch is build with the Bluetooth 4.0, aka BLE. Objective-C is the development language. I have also make use of the <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank">ReactiveCocoa</a> framework to program in FRP pattern in some modules.
+        </p>
+        <p>For the Hexapod control software, I have make use of the FreeRTOS to build a real-time system for montion control, BLE frame handling, health checking. And a set of BLE application frames are developed to help comunication between app and Hexapod.
+        </p>
+        <p>For more detail about this project, you can download <a href="http://www.enixyu.com/media/master-degree-paper.pdf" target="_blank">my master degree paper</a>.</p>
+    </div><!--//item-->
+    <div class="item">
+        <span class="project-title"><a href="https://itunes.apple.com/us/app/quickblue/id1100085971?ls=1&mt=8" target="_blank">QuickBlue</a></span> - 
+        <span class="project-tagline">QuickBlue is an app for developer to communicate with BLE 4.0 (Bluetooth Low Energy) peripherals.</span>
+        <p>Features: </p>
+        <ul>
+            <li>Automatic data read/write with user define interval</li>
+            <li>Action recording and replay</li>
+            <li>Read/Write data save to file, and send via email.</li>
+            <li>Both HEX/ASCII mode supported</li>
+        </ul>
+        </p>
+
+        <p>
+        Looking Inside: Quickblue is built with Objective-C, and CoreBluetooth, and it also make heavy used of GCD in asynchornous way.
+        </p>
+    </div><!--//item-->
+    <div class="item">
+        <span class="project-title"><a href="https://itunes.apple.com/cn/app/fei-ji-sou-suo/id1145203396?l=en&mt=8" target="_blank">Easyfly</a></span> - <span class="project-tagline">Easyfly is an LBS base flight service discovery platform. Easyfly is platform to connect flight service provider with potential customers. Easyfly is a B2C like platform, but what Easyfly offer is not a real product, but a flight service. For example, flight trail, aircraft exhibition, Aerial photography, flight trainning, etc. Through Easyfly, customers can make appointment to the service provider, and pay the charge online. Easyfly also offers aircraft database for the aircraft lovers, we have already included more than 6000+ aircraft in our database, and the number is still increasing.</span>
+        <p>Features: </p>
+        <ul>
+            <li>Nearby flight service discover</li>
+            <li>Service provider information browse, including rating, how many services had been sold, etc.</li>
+            <li>Flight service detail browse, including comment from other customers, service rating, etc.</li>
+            <li>Map based service discover</li>
+            <li>Aircraft database inquiry, filter by criteria.</li>
+            <li>Comment on the service you have brought.</li>
+            <li>Pay with Wechat or Alipay online, make appointment online.</li>
+        </ul>
+        <p>
+            Looking Inside: Easyfly is sperated by backend, frontend and app. For the backend, it is platform build with Python &amp; Django &amp; REST Framework. For the frontend, it is build with <a href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Semantic-UI</a> &amp; JQuery. For the app, it is build with Swift 3.0 and various open source library. <a href="https://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1" target="_blank">MVVM pattern</a> is what I have used to develop this app.
+        </p>
+    </div><!--//item-->
+    <div class="item">
+        <span class="project-title"><a href="https://itunes.apple.com/cn/app/qian-ge/id1146692784?l=en&mt=8" target="_blank">Qiange</a></span> - <span class="project-tagline">Qiange is an app for users to share their Taobao link to their friend or moment in their Wechat app.</span>
+        <p>Features: </p>
+        <ul>
+            <li>User registration</li>
+            <li>Taobao store binding</li>
+            <li>Taobao link convert and sharing to the wechat friend and moment</li>
+        </ul>
+        <p>
+            Looking Inside: Qiange is developed with Objective-C. I also helped to design RESTful API for my client.
+        </p>
+    </div><!--//item-->
+    <div class="item">
+        <span class="project-title"><a href="https://itunes.apple.com/cn/app/ix-well-zhi-neng/id1126217314?l=en&mt=8" target="_blank">IXWell</a></span> - <span class="project-tagline">IXWell is an smart home app. It can be used to control the light switch, the curtain, the brightness of the light in the house.</span>
+        <p>Features: </p>
+        <ul>
+            <li>User registration</li>
+            <li>Realtime light status, switch status, curtain status mainpluate in the app</li>
+            <li>Socket based control</li>
+        </ul>
+        <p>
+            Looking Inside: IXWell is developed with Objective-C. It is developed based on socket and JSON.
+        </p>
+    </div><!--//item-->
+</section><!--//section-->

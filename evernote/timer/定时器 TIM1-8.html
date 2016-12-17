@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.0.16 (451862)"/><meta name="author" content="enix223@gmail.com"/><meta name="created" content="2015-10-30 16:22:39 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2015-11-05 13:22:25 +0000"/><title>定时器 TIM1-8</title></head><body>
+<div><span style="font-size: 18px;"><b>定时器寄存器</b></span></div>
+<div><br/></div>
+<div>相关寄存器：</div>
+<ul>
+<li>计数寄存器（counter register TIMx_CNT）</li>
+<li>预分频寄存器（prescaler register TIMx_PSC）</li>
+<li>自动重载寄存器（auto reload register TIMx_ARR）</li>
+<li>重复计数寄存器（ repetition counter register TIMx_RCR）</li>
+</ul>
+<div><br/></div>
+<div>TIMx_ARR首先预载入。预载入寄存器会在每一次计时器更新事件发生的时候，写入影子寄存器，这由TIMx_CR1的ARPE位决定 。当计时器溢出，并且TIMx_CR1的UDIS位为0的时候，就会产生一次UEV更新事件。</div>
+<div><br/></div>
+<div>定时器的时钟由系统时钟的预分频后的时钟（CK_CNT）提供，但只是在TIMx_CR1的CEN位为1的时候才起作用。</div>
+<div><br/></div>
+<div><b>关于预分频</b></div>
+<div><br/></div>
+<div>预分频是用于将时钟频率进行切分，切分因子介于1至65536之间。它时基于一个由16位寄存器控制的16位计数器（TIMx_PSC）。它可以随时改变，并在下一次UEV产生的时候起作用。</div>
+<div><br/></div>
+<div><b>计算方法</b></div>
+<div><br/></div>
+<div>TIM的时钟是由PCKx提供，根据stm32f4xx的reference 手册，RCC关于Timmer时钟的描述如下：</div>
+<ol style="list-style-type: decimal">
+<li style="font-size: 8.000000pt; font-family: 'Arial'">
+<p><span style="font-size: 8.000000pt; font-family: 'Arial'">When TIMPRE bit of the RCC_DCKCFGR register is reset, if APBx prescaler is 1, then TIMxCLK = PCLKx, otherwise TIMxCLK = 2x PCLKx.</span></p>
+</li>
+<li style="font-size: 8.000000pt; font-family: 'Arial'"><span style="font-size: 8.000000pt; font-family: 'Arial'">When TIMPRE bit in the RCC_DCKCFGR register is set, if APBx prescaler is 1,2 or 4, then TIMxCLK = HCLK, otherwise TIMxCLK = 4x PCLKx.</span></li>
+</ol>
+<div style="font-size: 8.000000pt; font-family: 'Arial'"><br/></div>
+<div>所以，根据需要，我们可以设置TIM的时钟为2*PCLKx或者4*PCLKx。</div>
+<div><br/></div>
+<div>假如TIM2的时钟是2 * PCLK1，而</div>
+<div><br/></div>
+<div style="text-align: center"><b><i>PCK1 = HCLK / 4 =&gt; PCLK1 = SystemCoreClock / 4</i></b></div>
+<div><br/></div>
+<div>那么</div>
+<div><br/></div>
+<div style="text-align: center"><b><i>TIM2CLK ＝ SystemCoreClock  / 4 * 2 = SystemCoreClock / 2</i></b></div>
+<div><br/></div>
+<div>Prescaler与输入输出频率的关系如下：</div>
+<div><br/></div>
+<div style="text-align: center"><i><b>fout = fin / ( prescaler + 1 )</b></i></div>
+<div><br/></div>
+<div>也就可以推导出：</div>
+<div><br/></div>
+<div style="text-align: center"><b><i>prescaler = fin / fout - 1</i></b></div>
+<div><br/></div>
+<div>而此时，输入时钟TIM2CLK为 SystemCoreClock / 2，假设我们需要输出10 KHz的时钟频率，那么：</div>
+<div><br/></div>
+<div style="text-align: center"><b><i>prescaler = SystemCoreClock / 2 / 10000 - 1</i></b></div>
+<div><br/></div>
+<div>而TIM.Period则控制计数多少次会产生一次中断。</div>
+<div><br/></div>
+<div>综上所述，prescaler可以理解为设置定时器1秒计数多少次的设置参数，而period控制计数达到多少次之后，会产生一次中断。假设，prescaler为1000, 而period为4000，那么定时器需要4秒之后，就会产生一次中断。</div>
+<div><br/></div>
+<div><b>编程实现</b></div>
+<div><br/></div>
+<div><span style="font: 11.0px Menlo">  uwPrescalerValue = (</span><span style="font: 11.0px Menlo; color: #006141">uint32_t</span><span style="font-family: Menlo;"><span style="font-size: 11px;">)((SystemCoreClock / 2) / 10000) - 1;</span></span></div>
+<div><span style="font: 11.0px Menlo">  TimHandle.</span><span style="font: 11.0px Menlo; color: #0326cc">Instance</span> <span style="font-family: Menlo;"><span style="font-size: 11px;">= TIMx;</span></span></div>
+<div><span style="font: 11.0px Menlo">  TimHandle.</span><span style="font: 11.0px Menlo; color: #0326cc">Init</span><span style="font: 11.0px Menlo">.</span><span style="font: 11.0px Menlo; color: #0326cc">Period</span> <span style="font-family: Menlo;"><span style="font-size: 11px;">= 1000 - 1;</span></span></div>
+<div><span style="font: 11.0px Menlo">  TimHandle.</span><span style="font: 11.0px Menlo; color: #0326cc">Init</span><span style="font: 11.0px Menlo">.</span><span style="font: 11.0px Menlo; color: #0326cc">Prescaler</span> <span style="font-family: Menlo;"><span style="font-size: 11px;">= uwPrescalerValue;</span></span></div>
+<div><span style="font: 11.0px Menlo">  TimHandle.</span><span style="font: 11.0px Menlo; color: #0326cc">Init</span><span style="font: 11.0px Menlo">.</span><span style="font: 11.0px Menlo; color: #0326cc">ClockDivision</span> <span style="font-style: normal; font-variant: normal; font-weight: normal;"><span style="font-size: 11px;"><span style="font-family: Menlo;">= TIM_CLOCKDIVISION_DIV1;</span></span></span></div>
+<div><span style="font-family: Menlo;"><span style="font-size: 11px;">  TimHandle.<span style="font: 11.0px Menlo; color: #0326cc">Init</span><span style="font: 11.0px Menlo">.</span><span style="font: 11.0px Menlo; color: #0326cc">CounterMode</span> <span style="font: 11.0px Menlo">= TIM_COUNTERMODE_UP;</span></span></span></div>
+<div><br/></div>
+<div>Instance 设置初始化那个TIMER, 而Period设置计数多少次后会产生一次中断。Prescaler设置定时器1秒计数多少次的参数。而ClockDivision设置CK_INT与dead time和sample clock的关系：</div>
+<div><br/></div>
+<div><span style="font-size: 9.000000pt; font-family: 'Arial'; vertical-align: 2.000000pt">00: t</span><span style="font-size: 7.000000pt; font-family: 'Arial'">DTS</span><span style="font-size: 9.000000pt; font-family: 'Arial'; vertical-align: 2.000000pt">=t</span><span style="font-size: 7.000000pt; font-family: 'Arial'">CK_INT</span></div>
+<div><span style="font-size: 9.000000pt; font-family: 'Arial'; vertical-align: 2.000000pt">01: t</span><span style="font-size: 7.000000pt; font-family: 'Arial'">DTS</span><span style="font-size: 9.000000pt; font-family: 'Arial'; vertical-align: 2.000000pt">=2*t</span><span style="font-size: 7.000000pt; font-family: 'Arial'">CK_INT</span></div>
+<div><span style="font-size: 9.000000pt; font-family: 'Arial'; vertical-align: 2.000000pt">10: t</span><span style="font-size: 7.000000pt; font-family: 'Arial'">DTS</span><span style="font-size: 9.000000pt; font-family: 'Arial'; vertical-align: 2.000000pt">=4*t</span><span style="font-size: 7.000000pt; font-family: 'Arial'">CK_INT</span></div>
+<div><span style="font-size: 9.000000pt; font-family: 'Arial'">11: Reserved, do not program this value</span></div>
+<div><span style="font-size: 9pt;"><span style="font-family: Arial;"><br/></span></span></div>
+<div>最后，CounterMode设置计时模式，例如上向上计时，向下计时等。</div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>关于 PWM</b></span></div>
+<div><br/></div>
+<div>PWM有两种模式PWM mode 1 ( 110 in OCxM bits TIMx_CCMRx寄存器) 和 PWM mode 2 ( 111 in OCxM bits TIMx_CCMRx寄存器) </div>
+<div><br/></div>
+<div>PWM mode 1 - 向上计数模式，channel x 只有在TIMx_CNT &lt; TIMx_CCR1满足的情况下才有效（active），否则为inactive；而在向下计数模式中，channel x 只有在TIMx_CNT &gt; TIMx_CCR1满足的情况下才有效，否则为inactive。</div>
+<div><br/></div>
+<div>PWM mode 2 - 向上计数模式，channel x 只有在TIMx_CNT &lt; TIMx_CCR1满足的情况下才无效（inactive），否则为active；而在向下计数模式中，channel x 只有在TIMx_CNT &gt; TIMx_CCR1满足的情况下才无效，否则为active。</div>
+<div><br/></div>
+<div>TIMx_CCR1/2/3/4 - Channel 1/2/3/4比较寄存器。</div>
+<div><br/></div>
+<div> </div>
+<div><br/></div>
+<div><br/></div>
+</body></html>

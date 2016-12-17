@@ -1,0 +1,61 @@
+<!-- Use icons from fontawesome when you are adding new item in the contact list  -->                 
+ <div class="sidebar-wrapper">
+    <div class="profile-container">
+        <img class="profile-img" src="{{site.baseurl}}/assets/images/{% if site.cv.pic %}{{ site.cv.pic }}{% else %}profile.png{% endif %}" alt="profile picture" />
+        <h1 class="name">{% if site.cv.name %}{{site.cv.name}}{% else %}Enix Yu{% endif %}</h1>
+        <h3 class="tagline">{% if site.cv.tagline %}{{site.cv.tagline}}{% else %}Full Stack Developer{% endif %}</h3>
+    </div><!--//profile-container-->
+    
+    <div class="contact-container container-block">
+        <ul class="list-unstyled contact-list">
+           
+           {% if site.cv.email %}
+            <li class="email"><i class="fa fa-envelope"></i><a href="mailto: {{site.cv.email}}">{{site.cv.email}}</a></li>
+            {% else %}
+            <li class="email"><i class="fa fa-envelope"></i><a href="mailto:enixyu@robotbros.cn">enixyu@robotbros.cn</a></li>
+            {% endif %}
+            
+            {% if site.cv.phone %}
+            <li class="phone"><i class="fa fa-phone"></i><a href="tel:{{site.cv.phone}}">{{site.cv.phone}}</a></li>
+            {% else %}
+            <li class="phone"><i class="fa fa-phone"></i><a href="tel:012 345 6789">012 345 6789</a></li>
+            {% endif %}
+            
+            {% if site.cv.website %}
+            <li class="website"><i class="fa fa-globe"></i><a href="http://{{site.cv.website}}" target="_blank">{{site.cv.website}}</a></li>
+            {% else %}
+            <li class="website"><i class="fa fa-globe"></i><a href="http://blog.webjeda.com" target="_blank">blog.webjeda.com</a></li>
+            {% endif %}
+            
+            {% if site.cv.linkedin %}
+            <li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/{{site.cv.linkedin}}" target="_blank">linkedin.com/in/{{site.cv.linkedin}}</a></li>
+            {% else %}
+            <li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/sharath-kumar-87669956" target="_blank">linkedin.com/in/sharathdt</a></li>
+            {% endif %}
+            
+            {% if site.cv.github %}
+            <li class="github"><i class="fa fa-github"></i><a href="http://github.com/{{site.cv.github}}" target="_blank">github.com/{{site.cv.github}}</a></li>
+            {% else %}
+            <li class="github"><i class="fa fa-github"></i><a href="http://github.com/sharu725" target="_blank">github.com/sharu725</a></li>
+            {% endif %}
+
+            {% if site.cv.stackoverflow %}
+            <li class="stack-overflow "><i class="fa fa-stack-overflow "></i><a href="http://stackoverflow.com/users/{{site.cv.stackoverflow}}" target="_blank">stackoverflow</a></li>
+            {% else %}
+            <li class="stack-overflow "><i class="fa fa-stack-overflow "></i><a href="http://stackoverflow.com/users/2717397/" target="_blank">stackoverflow</a></li>
+            {% endif %}
+            
+            {% if site.cv.twitter %}
+            <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/{{site.cv.twitter}}" target="_blank">{{site.cv.twitter}}</a></li>
+            {% else %}
+             <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/@webjeda" target="_blank">@webjeda</a></li>
+            {% endif %}
+            
+        </ul>
+    </div><!--//contact-container-->
+   {% include cv/education.html %}
+   {% include cv/language.html %}
+   {% include cv/interests.html %}
+
+    
+</div><!--//sidebar-wrapper-->

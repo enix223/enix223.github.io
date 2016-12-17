@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.0.16 (451862)"/><meta name="altitude" content="0"/><meta name="author" content="enix223@gmail.com"/><meta name="created" content="2015-10-25 08:11:22 +0000"/><meta name="latitude" content="0"/><meta name="longitude" content="0"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2015-10-30 16:14:03 +0000"/><title>NVIC中断向量控制器</title></head><body>
+<div><span style="font-size: 18px;"><b>中断响应过程</b></span></div>
+<ol>
+<li>外设向处理器发起一个中断请求</li>
+<li>处理器挂起当前的任务</li>
+<li>处理器执行中断服务程序（ISR），并通过软件按需要清楚中断中断请求标志</li>
+<li>处理器返回到上一个被挂起的任务继续执行。</li>
+</ol>
+<div><img src="NVIC%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E6%8E%A7%E5%88%B6%E5%99%A8.resources/CE61C7B1-8E33-4F0F-8D61-F7CC39AF2603.png" height="395" width="759"/></div>
+<div><br/></div>
+<div>NVIC中断处理器，专门用于处理中断请求。</div>
+<div>cortex m3和cortex m4 NVIC支持最多240个IRQ, 一个NMI（不可屏蔽中断），SysTick（系统时钟），和一些其他系统中断。NMI一半通过外设发起，例如看门狗，BOD。其他中断来自处理器，中断可以由软件发起。</div>
+<div><br/></div>
+<div>cortex m处理器可以自动保存和恢复被中断的任务，所以无需编程过程中无需特别处理。</div>
+<div><br/></div>
+<div>1-15为系统异常中断，16以上为外部中断。每一个中断源都有个中断编号（IRQ，1-240）。</div>
+<div><br/></div>
+<div><b><span style="font-size: 18px;">中断管理</span></b></div>
+<div><br/></div>
+<div>大部分NVIC寄存器都在SCB当中。NVIC和SCB在SCS地址0xE000E000，大小为4KB。</div>
+<div>CMSIS NVIC相关函数（在头文件core_cm4.h/core_cm3.h）</div>
+<div><img src="NVIC%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E6%8E%A7%E5%88%B6%E5%99%A8.resources/17F53782-8591-4B66-B04B-24FB69B1AE4B.png" height="254" width="633"/></div>
+<div><br/></div>
+<div>每个中断有如下几种状态：</div>
+<ul>
+<li>启用enable或者禁用disabled</li>
+<li>等待pending处理器和非等待，pending可以在禁用状态下被置为1，且当中断启用后，立刻被处理</li>
+<li>正在执行active和非正在执行inactive</li>
+</ul>
+<div><br/></div>
+<div>一个中断被响应，需要满足以下条件：</div>
+<ul>
+<li>pending被置为1</li>
+<li>中断已启用</li>
+<li>中断的优先级比当前的级别要高</li>
+</ul>
+<div><br/></div>
+<div>NVIC_Type数据结构：</div>
+<div><br/></div>
+<div><span style="font: 11.0px Menlo; color: #931a68"><b>typedef</b></span> <span style="font: 11.0px Menlo; color: #931a68"><b>struct</b></span><span style="font: 11.0px Menlo"><br/>
+{<br/>
+  __IO</span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">ISER</span><span style="font: 11.0px Menlo">[8];                </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0x000 (R/W)  Interrupt Set Enable Register           */</span><span style="font: 11.0px Menlo"><br/>
+      </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">RESERVED0</span><span style="font: 11.0px Menlo">[24];<br/>
+  __IO</span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">ICER</span><span style="font: 11.0px Menlo">[8];                </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0x080 (R/W)  Interrupt Clear Enable Register         */</span><span style="font: 11.0px Menlo"><br/>
+      </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">RSERVED1</span><span style="font: 11.0px Menlo">[24];<br/>
+  __IO</span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">ISPR</span><span style="font: 11.0px Menlo">[8];                </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0x100 (R/W)  Interrupt Set Pending Register          */</span><span style="font: 11.0px Menlo"><br/>
+      </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">RESERVED2</span><span style="font: 11.0px Menlo">[24];<br/>
+  __IO</span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">ICPR</span><span style="font: 11.0px Menlo">[8];                </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0x180 (R/W)  Interrupt Clear Pending Register        */</span><span style="font: 11.0px Menlo"><br/>
+      </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">RESERVED3</span><span style="font: 11.0px Menlo">[24];<br/>
+  __IO</span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">IABR</span><span style="font: 11.0px Menlo">[8];                </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0x200 (R/W)  Interrupt Active bit Register           */</span><span style="font: 11.0px Menlo"><br/>
+      </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">RESERVED4</span><span style="font: 11.0px Menlo">[56];<br/>
+  __IO</span> <span style="font: 11.0px Menlo; color: #006141">uint8_t</span><span style="font: 11.0px Menlo"> </span> <span style="font: 11.0px Menlo; color: #0326cc">IP</span><span style="font: 11.0px Menlo">[240];                </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0x300 (R/W)  Interrupt Priority Register (8Bit wide) */</span><span style="font: 11.0px Menlo"><br/>
+      </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">RESERVED5</span><span style="font: 11.0px Menlo">[644];<br/>
+  __O </span> <span style="font: 11.0px Menlo; color: #006141">uint32_t</span> <span style="font: 11.0px Menlo; color: #0326cc">STIR</span><span style="font: 11.0px Menlo">;                   </span> <span style="font: 11.0px Menlo; color: #4f76cb">/*!&lt; Offset: 0xE00 ( /W)  Software Trigger Interrupt Register     */</span></div>
+<div><span style="font-family: Menlo;"><span style="font-size: 11px;">}  <span style="font: 11.0px Menlo; color: #006141">NVIC_Type</span><span style="font: 11.0px Menlo">;</span></span></span></div>
+<div><br/></div>
+<div>重置之后，所有中断都处于禁用状态，并且优先级为0。所以在使用中断前，必须执行以下步骤：</div>
+<ol>
+<li>设置中断的优先级（可选）</li>
+<li>启用外设的中断</li>
+<li>启用NVIC里面的中断</li>
+</ol>
+<div><br/></div>
+<div>ISR程序可以在启动代码中找到，并且ISR程序的名字必须和中断表（vector table）一致。</div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>两个优先级</b></span></div>
+<ul>
+<li>抢占优先级 priority group （旧称pre-emption ，高优先级可以抢占低优先级，即嵌套中断）</li>
+<li>响应优先级 subpriority （在相同抢占优先级的前提下，高响应优先级的中断必须等待低响应优先级的中断完成后才能执行，也就是不能嵌套中断）</li>
+<li>优先级取值 0 －15，数字越小，优先级越高</li>
+</ul>
+<div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>优先级冲突处理：</b></span></div>
+<div>当两个中断同时发生，按如下逻辑判断哪个先执行：</div>
+</div>
+<ol>
+<li>比较两个中断的抢占优先级，高优先级的中断先被响应</li>
+<li>相同抢占优先级的前提下，比较响应优先级，高响应优先级的中断先被响应</li>
+<li>当抢占优先级和响应优先级都相同的情况下，则根据中断表的排位顺序决定哪一个先执行。（IRQ号小的优先级高）</li>
+</ol>
+<div><br/></div>
+<div>中断优先级通过优先级寄存器控制，通常长度为3-8 bits</div>
+<div><br/></div>
+<div>例如，如下例子，LSB 0-4bits均没实现，那么优先级可取值为0x20, 0x40, 0x80, 0xA0, 0xC0, 0xE0</div>
+<div><img src="NVIC%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E6%8E%A7%E5%88%B6%E5%99%A8.resources/8801E78B-4671-450B-BCCC-3CAAD3C0FB7F.png" height="117" width="443"/></div>
+<div><br/></div>
+<div>之所以忽略LSB而不是MSB，是为了兼容性问题。例如实现了4位的优先级寄存器程序，可运行于只实现了3位的优先级寄存器平台。</div>
+<div><br/></div>
+<div><span style="font-size: 18px;"><b>设置priority group</b></span></div>
+<div><br/></div>
+<div>例子1， priority group设置为5，那么就有4个抢占优先级，每个抢占优先级有2个响应优先级</div>
+<div><img src="NVIC%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E6%8E%A7%E5%88%B6%E5%99%A8.resources/A8C911DA-1A61-415C-976B-EDA4660EF597.png" height="129" width="463"/></div>
+<div>例子2，如果priority group设置为1，那么就只有8个抢占优先级，而没有响应优先级。</div>
+<div><img src="NVIC%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E6%8E%A7%E5%88%B6%E5%99%A8.resources/DA68F37E-1E19-44D5-B531-E2E82D4CF915.png" height="120" width="460"/></div>
+<div>例如3， 如果实现了所有的寄存器位，那么该处理器最多只有2^7=128个抢占优先级，每个抢占优先级下有2个响应优先级</div>
+<div><img src="NVIC%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E6%8E%A7%E5%88%B6%E5%99%A8.resources/B7D3D468-F22C-44BD-B93E-787A9C50E779.png" height="129" width="498"/></div>
+<div><b><span style="font-size: 18px;">中断向量表</span></b></div>
+<div><br/></div>
+<div>中断向量表一般置于地址0，中断向量表包括了异常处理程序的起始地址，还包括了MSP的初始值。但中断向量表可以在启动代码中重新放置于内存或者flash，可是不能在运行过程中移动。</div>
+<div><br/></div>
+<div>中断向量表relocation是通过VTOR寄存器实现。</div>
+<div><br/></div>
+</body></html>
