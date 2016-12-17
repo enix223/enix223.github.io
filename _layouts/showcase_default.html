@@ -1,0 +1,16 @@
+---
+layout: showcase_compress
+---
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" {% if page.main-class %}class="post-{{ page.main-class }}"{% endif %}>
+    {% include showcase/head.html %}
+    <body>
+        {% include showcase/svg-icons.html %}
+        {% include showcase/header-default.html %}
+            <section class="content">
+                {{ content }}
+            </section>
+        {% include showcase/footer.html %}
+    </body>
+</html>
