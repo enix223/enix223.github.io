@@ -22,7 +22,7 @@ defer通常用于对数据的清理工作，例如关闭文件。我们通过如
         }
         
         // 此时 fileOpen 仍然为true
-		assert(fileOpen == true)
+        assert(fileOpen == true)
         
         print('processing file')
     }
