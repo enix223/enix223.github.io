@@ -20,7 +20,7 @@ title: 'Swift 闭包 @escape, @nonescape和@autoclosure的作用和用法'
 
 > “A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns.”
 > 
-__> Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks__.
+> Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks.
 
 它的意思是：__用@escape修饰的闭包参数，允许闭包在函数的作用域之外调用__。通常使用@escape场合是，我们需要把闭包closure保存为类的属性，并在稍后作为回调函数的方式调用。也就是说，闭包并不在当前函数中调用，而是在当前函数的作用域之外调用。
 
