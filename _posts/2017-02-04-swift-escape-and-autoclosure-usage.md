@@ -13,7 +13,7 @@ tags: ''
 
 这3个修饰符都是用于修饰函数定义中的闭包参数。@escape和@nonescape是用于声明闭包可以在何时调用；@autoclosure则是用于把一个表达式作为参数，自动打包为闭包，并传递给接受闭包参数的函数。
 
-### @escape 和 @nonescape
+## @escape 和 @nonescape
 
 当闭包closure作为函数的参数时，Swift允许我们对闭包参数添加声明注解，其中@escape和@nonescape是对闭包的调用范围作出声明。
 
@@ -87,7 +87,7 @@ Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks.
       }
     }
 
-### @autoclosure
+## @autoclosure
 
 对于@autoclosure的作用，apple官方文档是这样描述的：
 
