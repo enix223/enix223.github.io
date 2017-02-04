@@ -2,7 +2,7 @@
 layout: blog
 categories: blog
 published: true
-title: Swift defer usage
+title: Swift defer的用法
 ---
 defer用于修饰一个block，并声明该block里面的代码在当前函数的所有代码执行完毕后，才被执行。官方对defer的说明如下：
 
