@@ -37,7 +37,7 @@ Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks.
       // 定义一个回调函数属性
       var callback: Callback
 
-      func setReadCallback(@escape callback Callback) {
+      func setReadCallback(_ callback: @escape Callback) {
           // 我们并不需要callback在当前函数的作用域中调用，而是在稍后才调用callback函数
           // 所以，我们需要对callback参数作@escape的声明
           self.callback = callback
@@ -70,13 +70,13 @@ Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks.
       var callback: Callback
 
       // 以下函数会在编译过程报错 
-      func setReadCallback(@escape callback Callback) {
+      func setReadCallback(_ callback: @escape Callback) {
           // 如果callback没有被立即调用，那么编译器会报错，
           // 因为callback没有在setReadCallback作用域中被调用.
           self.callback = callback
       }
 
-      func readSync(callback Callback) {
+      func readSync(_ callback: @escape Callback) {
          print("Reading...")
          print("Read finished")
 
@@ -89,4 +89,20 @@ Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks.
 
 ### @autoclosure
 
+对于@autoclosure的作用，apple官方文档是这样描述的：
 
+> “An autoclosure is a closure that is automatically created to wrap an expression that’s being passed as an argument to a function. It doesn’t take any arguments, and when it’s called, it returns the value of the expression that’s wrapped inside of it. ”
+> 
+> Excerpt From: Apple Inc. “The Swift Programming Language (Swift 3).” iBooks.
+
+@autoclosure用于把一个表达式自动封装为闭包，并作为参数传递给函数，封装的闭包没有任何参数，并且把表达式的值作为返回值返回。
+
+还是让我们通过一个例子说命@autoclosure的使用：
+
+	// result闭包用@autoclosure声明，说明printResult函数可以接受表达式作为参数来调用
+    func printResult(result: @autoclosure () -> Int ) {
+        print("Calculation result: \(result)")
+    }
+
+    // 直接使用表达式作为闭包参数，@autoclosure会自动把该表达式封装为闭包
+    printResult(1 + 2)
