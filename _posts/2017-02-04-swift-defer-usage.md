@@ -4,7 +4,7 @@ categories: blog
 published: true
 title: Swift defer的用法
 ---
-defer用于修饰一个block，并声明该block里面的代码在当前函数的所有代码执行完毕后，才被执行。官方对defer的说明如下：
+defer的字面意思就是__延迟执行__，在swift中用于修饰一个block，并声明该block里面的代码在当前函数的所有代码执行完毕后，才被执行。官方对defer的说明如下：
 
 > “Use defer to write a block of code that is executed after all other code in the function, just before the function returns.”
 
