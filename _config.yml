@@ -16,7 +16,7 @@ cv:
   #Profile information
   title: 'Resume - Enix Yu'
   name: Enix Yu
-  tagline: Full Stack Developer
+  tagline: iOS Developer
   pic: avatar.jpg  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
   #sidebar links
