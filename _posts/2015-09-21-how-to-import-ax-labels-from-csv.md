@@ -1,11 +1,11 @@
 ---
-layout: blog
+layout: post
 title: "AX: How to import labels from csv file"
 date: "2015-09-21 23:04:05 +0800"
 comments: true
 categories: blog
 published: true
-tags: null
+tags: ax
 ---
 
 

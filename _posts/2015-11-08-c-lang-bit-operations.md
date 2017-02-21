@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: C
 published: true
 title: c语言的位操作
 ---

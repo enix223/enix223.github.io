@@ -1,12 +1,12 @@
 ---
-layout: blog
+layout: post
 category: blog
 title: "xCopter开发日记 - STM32F4 LED example"
 date: "2015-05-04 23:07:47 +0800"
 comments: true
 published: true
 categories: blog
-tags: null
+tags: stm32 led
 ---
 
 

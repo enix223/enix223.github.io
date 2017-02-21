@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: Objective-C
 published: true
 title: KVC键值编码和KVO观察者模式
 ---

@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: AX
 tags: 
   - "null"
 published: true

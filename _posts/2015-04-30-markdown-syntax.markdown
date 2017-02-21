@@ -1,9 +1,9 @@
 ---
-layout: blog
+layout: post
 title: "Markdown Syntax"
 date: 2015-04-30 15:19:38 +0800
 comments: true
-categories: blog
+categories: markdown
 ---
 
 [top]:

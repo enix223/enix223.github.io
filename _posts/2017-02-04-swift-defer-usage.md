@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: Swift
 published: true
 title: Swift defer的用法
 ---

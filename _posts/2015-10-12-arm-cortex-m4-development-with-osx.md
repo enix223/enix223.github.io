@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: cortex-m4
 tags: 
   - "embedded-system"
 published: false

@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 categories: blog
 published: false
 title: ReactJs 学习笔记1

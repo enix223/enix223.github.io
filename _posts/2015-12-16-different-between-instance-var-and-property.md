@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: Objective-C
 published: true
 title: Instance Variable 和 Property的区别
 ---

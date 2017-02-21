@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: C
 published: true
 title: 基于osx＋eclipse cdt + arm-gcc 开发STM32
 ---

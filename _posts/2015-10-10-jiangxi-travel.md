@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: diary
 tags: null
 published: true
 title: 秋风飒爽，江西赣州行

@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: Objective-C
 published: true
 title: Category & Protocol
 ---

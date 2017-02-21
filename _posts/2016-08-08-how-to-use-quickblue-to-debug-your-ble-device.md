@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: iOS
 published: true
 title: How to use QuickBlue to debug your BLE device
 ---

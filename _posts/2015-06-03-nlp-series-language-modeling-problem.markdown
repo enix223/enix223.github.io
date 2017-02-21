@@ -1,9 +1,10 @@
 ---
-layout: blog
+layout: post
 title: "NLP series - Language modeling problem"
 date: 2015-06-03 23:19:08 +0800
 comments: true
 categories: blog
+published: false
 ---
 
 $$

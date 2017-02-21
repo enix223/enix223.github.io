@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: embedded
 published: true
 title: 时钟，分频与倍频
 ---

@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: FreeRTOS
 tags: null
 published: false
 title: freerots on cortex m4 and arm gcc toolchain

@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: iOS
 published: true
 title: 如何通过wireshark抓取iphone的HTPP请求
 ---

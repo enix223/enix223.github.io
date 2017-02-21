@@ -1,9 +1,9 @@
 ---
-layout: blog
+layout: post
 title: "Algorithm study - Tree search"
 date: 2015-05-31 15:25:18 +0800
 comments: true
-categories: blog
+categories: algorithm
 ---
 
 树搜索策略是算法问题里面的一个大分支，本文旨意在于记录学习树搜索过程中的点滴和领悟。

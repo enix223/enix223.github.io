@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: Swift
 published: true
 title: 'Swift 闭包 @escape, @nonescape和@autoclosure的作用和用法'
 ---

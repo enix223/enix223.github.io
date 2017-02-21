@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: C
 published: true
 title: CDT gcc-arm 插件相关问题集锦
 ---

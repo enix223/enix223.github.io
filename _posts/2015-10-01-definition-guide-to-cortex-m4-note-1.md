@@ -1,11 +1,11 @@
 ---
-layout: blog
+layout: post
 tags: 
   - "null"
 published: true
 title: 关于Data structure alignment (字节对齐)
 date: "2015-10-01 15:33:08 +0800"
-categories: blog
+categories: C
 ---
 
 

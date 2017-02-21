@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: Objective-C
 published: false
 title: 关于Objective-C的@dynamic学习与研究
 tags: ''

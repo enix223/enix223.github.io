@@ -1,9 +1,9 @@
 ---
-layout: blog
+layout: post
 title: "Access Google via Redhat Openshift"
 date: 2015-09-17 00:19:44 +0800
 comments: true
-categories: blog
+categories: openshift
 ---
 
 Openshift介绍

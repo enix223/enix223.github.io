@@ -1,9 +1,9 @@
 ---
-layout: blog
+layout: post
 title: "xCopter开发日记 - 移植FreeRTOS到STM32F4平台"
 date: 2015-05-07 15:23:11 +0800
 comments: true
-categories: blog
+categories: stm32 freertos
 ---
 
 本文阐述如何在STM32F4平台上，通过FreeRTOS实时操作系统开发应用。本文使用的是STM32F401-Discovery开发板。板上有4个LED灯，一个用户按键。4个按键分别为： 

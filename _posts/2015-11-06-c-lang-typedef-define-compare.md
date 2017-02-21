@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: C
 published: true
 title: typedef 与 define的区别
 ---

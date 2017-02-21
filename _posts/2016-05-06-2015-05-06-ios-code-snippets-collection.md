@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: iOS
 tags: 
   - iOS
 published: true

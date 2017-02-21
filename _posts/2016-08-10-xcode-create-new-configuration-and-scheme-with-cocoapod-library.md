@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 categories: blog
 published: true
 title: '[Xcode] Create New configuration and scheme with Cocoapod library'

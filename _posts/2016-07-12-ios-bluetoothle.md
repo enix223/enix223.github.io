@@ -1,6 +1,6 @@
 ---
-layout: blog
-categories: blog
+layout: post
+categories: iOS
 published: true
 title: iOS BluetoothLE 开发资料汇总
 tags: ''

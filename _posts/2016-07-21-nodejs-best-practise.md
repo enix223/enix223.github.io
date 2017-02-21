@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 categories: blog
 published: true
 title: Nodejs开发实践

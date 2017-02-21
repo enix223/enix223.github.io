@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 categories: blog
 published: true
 title: iOS 本地消息推送 Local notification (Applicable to iOS 7/8/9)
