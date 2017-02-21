@@ -5,7 +5,7 @@ title: "xCopter开发日记 - STM32F4 LED example"
 date: "2015-05-04 23:07:47 +0800"
 comments: true
 published: true
-categories: blog
+categories: stm32
 tags: stm32 led
 ---
 

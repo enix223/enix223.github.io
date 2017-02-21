@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: blog
+categories: XCode
 published: true
 title: '[Xcode] Create New configuration and scheme with Cocoapod library'
 tags: ''

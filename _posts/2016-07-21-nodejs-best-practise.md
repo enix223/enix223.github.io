@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: blog
+categories: NodeJS
 published: true
 title: Nodejs开发实践
 tags: ''
