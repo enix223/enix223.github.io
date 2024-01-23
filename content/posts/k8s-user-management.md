@@ -1,7 +1,8 @@
 ---
-title: 'K8s User Management'
+title: 'Kubernetes User Management'
 date: 2023-11-21T11:44:55+08:00
-draft: true
+draft: false
+tags: [k8s, kubernetes]
 ---
 
 ## Create user CSR

@@ -14,7 +14,7 @@ params:
   author: 'Enix Yu'
   description: 'The best preparation for tomorrow is doing your best today'
   avatar: '/images/logo.png'
-  favicon: '/favicon.ico'
+  favicon: '/images/favicon.ico'
   menu_item_separator: '/'
   googleTranslate: false
   toc:
