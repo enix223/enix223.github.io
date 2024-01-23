@@ -47,8 +47,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-      - name: Install Node.js dependencies
-        run: "cd themes/hugo-theme-luna && npm install --production"
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
