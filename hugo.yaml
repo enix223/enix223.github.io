@@ -1,0 +1,61 @@
+baseURL: 'https://www.enixyu.com/'
+languageCode: en-us
+defaultContentLanguage: en-us
+hasCJKLanguage: true
+title: "Enix Yu's Blog"
+theme: 'm10c'
+paginate: 10
+copyright: "© Copyright Enix Yu"
+
+permalinks:
+  posts: "/:filename"
+
+params:
+  author: 'Enix Yu'
+  description: 'The best preparation for tomorrow is doing your best today'
+  avatar: '/images/logo.png'
+  favicon: '/favicon.ico'
+  menu_item_separator: '/'
+  googleTranslate: false
+  toc:
+    enabled: true
+    wordCount: 400
+  runTime:
+    enabled: true
+    creatTime: 2015/1/1
+  since: "2015"
+  font: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif'
+
+menu:
+  main:
+    - name: Home
+      weight: 10
+      identifier: home
+      params:
+        icon: eva eva-home
+      url: /
+    - name: Tags
+      weight: 20
+      identifier: tags
+      params:
+        icon: eva eva-hash
+      url: /tags/
+    - name: Archives
+      weight: 30
+      identifier: archives
+      params:
+        icon: eva eva-bar-chart
+      url: /archives/
+    - name: GitHub
+      weight: 40
+      identifier: github
+      params:
+        icon: eva eva-github
+      url: https://github.com/enix223
+    - name: Cloudesk
+      weight: 50
+      params:
+        rel: external
+        target: _blank
+        icon: eva eva-color-palette
+      url: https://cloudesk.top
