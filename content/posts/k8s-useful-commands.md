@@ -53,3 +53,15 @@ cs-purple podCIDR = 10.244.9.0/24
 cs-red podCIDR = 10.244.0.0/24
 cs-yellow podCIDR = 10.244.7.0/24
 ```
+
+## Restart deployment pod with rollout
+
+```shell
+kubectl rollout restart deployment demo-deployment -n demo-namespace
+```
+
+## Restart pod with deleting pod
+
+```shell
+kubectl delete pod demo_pod -n demo_namespace
+```
