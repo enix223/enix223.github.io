@@ -10,6 +10,12 @@ copyright: "© Copyright Enix Yu"
 permalinks:
   posts: "/:filename"
 
+services:
+  googleAnalytics:
+    id: "G-F2R6FSZ1ZR"
+  rss:
+    limit: -1
+
 params:
   author: 'Enix Yu'
   description: 'The best preparation for tomorrow is doing your best today'
