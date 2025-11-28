@@ -1,12 +1,99 @@
+### 📦 Dependencies and Modules ###
+# Standard Node Modules directory
 node_modules/
-.parcelCache
-.cache
-_gen
-/public
-yarn.lock
+# Recursive matching for node_modules in sub-packages (monorepos)
+**/node_modules/
+
+# pnpm-specific directories
+.pnpm/
+.pnpm-store/
+.pnpmfile.cjs
+
+---
+
+### 🧱 Build, Cache, and Temporary Files ###
+# Standard Build Output Directories
+dist/
+build/
+out/
+lib/
+
+# Common Cache Directories
+.cache/
+.parcelCache/ # Alias for .parcel-cache/
+.parcel-cache/
+.vite/
+.next/
+.nuxt/
+.turbo/
+.expo/
+.vercel/
+
+# Temporary and Generated Files
 .tmp
+_gen
+public/
+*.tsbuildinfo
 .hugo_build.lock
+.localhistory
+
+---
+
+### 🔒 Lock Files ###
+# Keep the one you use, ignore the others.
+# Uncomment the ones you DO NOT use in your project.
+
+# package-lock.json # Uncomment if using Yarn or pnpm
+# yarn.lock           # Uncomment if using npm or pnpm
+# pnpm-lock.yaml      # Uncomment if using npm or Yarn
+
+---
+
+### 📜 Logs and Debugging ###
+logs/
+# General log files
+*.log
+*.log.*
+debug.log
+# Package manager logs
 yarn-error.log
-package-lock.json
-pnpm-lock.yaml
+npm-debug.log*
+.pnpm-debug.log*
+pnpm-debug.log*
+# Third-party logs
+firebase-debug.log
+
+---
+
+### 🔬 Coverage and Reports ###
+coverage/
+.nyc_output/
+coverage-final.json
+report/
+
+---
+
+### 🔑 Environment and Secrets ###
+# Local environment files (contains secrets/local config)
+.env
+.env.local
+.env.*.local
+.local
+# CI/Testing environment files
+.env.test
+.env.production.local
+
+---
+
+### 💻 OS and Editor Metadata ###
+# Operating System files
 .DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.idea/
+.vscode/
+*.swp
+*~.nib
+*.sublime-workspace
+*.sublime-project

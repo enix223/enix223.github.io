@@ -1,0 +1,10 @@
+{
+  "name": "proxy",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify"
+  },
+  "devDependencies": {
+    "wrangler": "^4.47.0"
+  }
+}

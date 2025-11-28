@@ -1,0 +1,15 @@
+{
+  "name": "enixyu-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm run dev:doocs && pnpm run dev:proxy",
+    "dev:doocs": "docker run --rm -d -p 8700:80 --name doocs docker.ilovechina.top/doocs/md:2.1.0-static",
+    "dev:proxy": "pnpm run --filter='proxy' dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.10.0"
+}
