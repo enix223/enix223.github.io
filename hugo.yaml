@@ -4,11 +4,17 @@ defaultContentLanguage: en-us
 hasCJKLanguage: true
 title: "Enix Yu's Blog"
 theme: 'm10c'
-paginate: 10
+pagination:
+  pagerSize: 10
 copyright: "© Copyright Enix Yu"
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 permalinks:
-  posts: "/:filename"
+  posts: "/:contentbasename"
 
 services:
   googleAnalytics:
