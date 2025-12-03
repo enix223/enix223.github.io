@@ -71,6 +71,36 @@ hivemq-mqtt-client = { module = "com.hivemq:hivemq-mqtt-client", version.ref = "
 
 添加完依赖后，我们需要使用gradle的sync功能同步并下载相关的依赖。
 
+# APP设计
+
+开始开发前，我们需要对app做一个简单的系统设计。系统类图如下所示:
+
+```mermaid
+classDiagram
+  class ColorRingView {
+  
+  }
+  class BaseActivity {
+    <<抽象类>>
+  }
+  class MainActivity {
+    
+  }
+  class SettingActivity {
+    
+  }
+  class RemoteController {
+    <<接口>>
+    void setColor(int i, int r, int g, int b, int a)
+  }
+  class MqttRemoteController {
+  
+  }
+  BaseActivity <|-- MainActivity
+  BaseActivity <|-- SettingActivity
+  RemoteController <|.. MqttRemoteController
+```
+
 # 核心代码编写
 
 ## MQTT客户端
@@ -108,3 +138,4 @@ mClient = MqttClient.builder()
 本篇是《基于MQTT实现RGB灯远程控制》的最后一篇，相信经过这3篇文章的介绍，您对一个物联网控制系统的开发已经有了一个初步的认识。当我们日后有相关的项目需求，我们可以基于这个系列的文章的代码进行扩展以满足我们的项目要求。
 
 更多物联网相关的开发案例，敬请关注公众号: **X驿站**
+
