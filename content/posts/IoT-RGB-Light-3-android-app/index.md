@@ -84,21 +84,65 @@ classDiagram
     <<抽象类>>
   }
   class MainActivity {
-    
+    -adapter: LightArrayAdapter
   }
   class SettingActivity {
     
   }
   class RemoteController {
     <<接口>>
-    void setColor(int i, int r, int g, int b, int a)
+    setColor(i: int, r: int, g: int, b: int, a: int): void
   }
   class MqttRemoteController {
-  
+    -mClient: Mqtt3AsyncClient
   }
+  class LightArrayAdapter {
+    -ledList: List~LED~
+  }
+  class LED {
+    -index: int
+    -brigtness: int
+    -color: Color
+    +getIndex() int
+    +setIndex(value: int) void
+    +getBrightness() int
+    +setBrightness(value: int) void
+    +getColor() Color
+    +setColor(color: Color) void
+  }
+  class MqttSettingModel {
+    -username: String
+    -password: String 
+    -brokerHost: String 
+    -brokerPort: int
+    -deviceId: String 
+  }
+  class MqttSettingStore {
+    <<接口>>
+    +get(context: Context) MqttSettingModel
+    +save(context: Context, model: MqttSettingModel)
+  }
+  class MqttSettingStoreSharedPrefImpl {
+  }
+  class ServiceProvider {
+     +$INSTANCE: ServiceProvider
+     -remoteController: RemoteController
+     -mqttSettingStore: MqttSettingStore
+     -getRemoteController() RemoteController
+     -getMqttSettingStore() MqttSettingStore
+  }
+  ServiceProvider o-- RemoteController
+  ServiceProvider o-- MqttSettingStore
   BaseActivity <|-- MainActivity
   BaseActivity <|-- SettingActivity
   RemoteController <|.. MqttRemoteController
+  MainActivity o-- LightArrayAdapter
+  MainActivity o-- ColorRingView
+  MqttSettingStore ..> MqttSettingModel: 保存与读取
+  LightArrayAdapter ..> LED: 使用
+  MainActivity ..> ServiceProvider: 使用
+  SettingActivity ..> ServiceProvider: 使用
+  MqttSettingStore <|-- MqttSettingStoreSharedPrefImpl
 ```
 
 # 核心代码编写
