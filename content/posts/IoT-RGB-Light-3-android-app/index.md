@@ -170,6 +170,13 @@ classDiagram
    - `a`: 亮度值(0~255)
 * `MqttSettingStore`: 定义如何读取和保存mqtt连接的参数，分别包括配置的读取`get`和保存`save`。
 
+## 3.3. 服务实现层
+
+服务实现层是实现服务接口层对应的接口:
+
+* `MqttRemoteController`, 实现了`RemoteController`接口，并基于网络MQTT协议实现LED灯的远程控制逻辑。
+* `MqttSettingStoreSharedPrefImpl`, 实现了`MqttSettingStore`接口，基于SharedPreferences实现mqtt配置信息的保存。
+
 # 核心代码编写
 
 ## MQTT客户端
@@ -207,4 +214,3 @@ mClient = MqttClient.builder()
 本篇是《基于MQTT实现RGB灯远程控制》的最后一篇，相信经过这3篇文章的介绍，您对一个物联网控制系统的开发已经有了一个初步的认识。当我们日后有相关的项目需求，我们可以基于这个系列的文章的代码进行扩展以满足我们的项目要求。
 
 更多物联网相关的开发案例，敬请关注公众号: **X驿站**
-
