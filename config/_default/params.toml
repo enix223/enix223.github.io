@@ -5,7 +5,7 @@ isSinglePage = true
 description = "The best preparation for tomorrow is doing your best today"
 
 # Header Configuration
-avatar = "img/profile-picture.jpg"
+avatar = "img/logo.png"
 
 #favicon
 favicon = "icons/favicon.ico"

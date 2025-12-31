@@ -2,7 +2,7 @@
 title: 'How to Fix the "Server May Not Support Tls Protocol Version" in gradle project'
 date: 2024-01-25T10:23:00+08:00
 draft: false
-tags: [anroid, gradle, tls]
+tags: [android, gradle, tls]
 ---
 
 ## Problem
