@@ -23,21 +23,16 @@ services:
     limit: -1
 
 params:
-  author: 'Enix Yu'
-  description: 'The best preparation for tomorrow is doing your best today'
-  avatar: '/images/logo.png'
-  favicon: '/images/favicon.ico'
-  menu_item_separator: '/'
-  googleTranslate: false
-  toc:
-    enabled: true
-    wordCount: 400
-  runTime:
-    enabled: true
-    creatTime: 2015/1/1
-  since: "2015"
-  font: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif'
-
+  assets:
+    favicon: "/images/favicon.ico"
+    favicon16x16: "/images/favicon-16x16.ico"
+    favicon32x32: "/images/favicon-32x32.ico"
+    apple_touch_icon: "/images/logo.png"
+    safari_pinned_tab: "/images/apple-touch-icon.png"
+  homeInfoParams:
+    Title: "Hi there"
+    Content: >
+      👋 Welcome to my personal blog!
 menu:
   main:
     - name: Home
