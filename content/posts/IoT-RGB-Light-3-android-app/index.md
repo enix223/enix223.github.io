@@ -209,6 +209,87 @@ mClient = MqttClient.builder()
         .buildAsync();
 ```
 
+发起连接
+
+```java
+mClient.connectWith()
+        .simpleAuth()
+        .username(options.getUsername())
+        .password(options.getPassword().getBytes(StandardCharsets.UTF_8))
+        .applySimpleAuth()
+        .cleanSession(true)
+        .keepAlive(30)
+        .send()
+        .whenComplete(((mqtt3ConnAck, throwable) -> {
+          Log.d(TAG, String.format("连接结果: %s", throwable == null ? "成功" : "失败"));
+          if (mOnDeviceConnectionChangedListener != null) {
+            mOnDeviceConnectionChangedListener.onConnectionChanged(throwable == null);
+          }
+        }));
+```
+
+订阅主题
+
+```java
+mClient.subscribeWith()
+        .topicFilter(subscribeTopic)
+        .qos(MqttQos.AT_LEAST_ONCE)
+        .callback(mqtt3Publish -> {
+          MqttTopic topic = mqtt3Publish.getTopic();
+          Optional<ByteBuffer> payload = mqtt3Publish.getPayload();
+          String message = payload.map(
+                  byteBuffer -> StandardCharsets.UTF_8.decode(byteBuffer).toString())
+              .orElse("null");
+          Log.d(TAG, String.format("接收到mqtt数据: topic = %s, message = %s", topic, message));
+          if (mOnDevicePropertiesChangedListener == null) {
+            return;
+          }
+
+          String topicString = StandardCharsets.UTF_8.decode(topic.toByteBuffer()).toString();
+          Pattern pattern = Pattern.compile(UPSTREAM_TOPIC_REGEXP);
+          Matcher matcher = pattern.matcher(topicString);
+          if (!matcher.matches()) {
+            return;
+          }
+          String deviceId1 = matcher.group(0);
+
+          PropertiesChangeRequest request = JSON.parseObject(message,
+              PropertiesChangeRequest.class);
+          if (request == null) {
+            Log.w(TAG, "解析下行数据失败");
+            return;
+          }
+          mOnDevicePropertiesChangedListener.onPropertiesChanged(deviceId1, request.getPayload());
+        })
+        .send()
+        .whenComplete((mqtt3SubAck, throwable) -> {
+          Log.d(TAG, String.format("订阅结果: %s, topic = %s", throwable == null ? "成功" : "失败",
+              subscribeTopic));
+        });
+```
+
+下发属性
+
+```java
+public void setProperties(String deviceId, Map<String, Object> properties)
+      throws RemoteControlException {
+    if (mClient == null) {
+      throw new RemoteControlException(mContext.getString(R.string.mqtt_not_connect));
+    }
+    PropertiesChangeRequest request = new PropertiesChangeRequest(Command.SET_PROPERTIES,
+        properties);
+    byte[] payload = JSON.toJSONBytes(request);
+    String topic = getDownstreamTopic(deviceId);
+    mClient.publishWith()
+        .topic(topic)
+        .payload(payload)
+        .qos(MqttQos.AT_LEAST_ONCE)
+        .send()
+        .thenAccept(mqtt3Publish -> Log.d(TAG,
+            String.format("下发属性成功: topic = %s, payload = %s", topic, new String(payload))));
+  }
+```
+
 # 结语
 
 本篇是《基于MQTT实现RGB灯远程控制》的最后一篇，相信经过这3篇文章的介绍，您对一个物联网控制系统的开发已经有了一个初步的认识。当我们日后有相关的项目需求，我们可以基于这个系列的文章的代码进行扩展以满足我们的项目要求。
